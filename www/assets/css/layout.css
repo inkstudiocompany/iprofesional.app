@@ -1,0 +1,252 @@
+@media all and (min-width:600px){
+	/* MENU */
+	.cabezalmenu #elmenuespeciales{
+		width:70%;
+		height:100vh;
+		margin-left:30%;
+	}
+	.cabezalmenu .elmenu .itemsespeciales ul li{
+		width:50%;
+		float:left;
+		height:10vh;
+		text-align:left;
+		font-size:11px;
+	}
+	.cabezalmenu .elmenu .itemsespeciales ul .tit{
+		width:100%;
+		float:none;
+		height:10vh;
+		padding-top:10vh;
+		padding-bottom:4vh;
+	}
+	.cabezalmenu .elmenu .itemsespeciales ul li a{
+		line-height: 10vh;
+		text-indent:10px;
+	}
+	.cabezalmenu .elmenu .itemsmenu ul li{
+		width:50%;
+		float:left;
+		height:10vh;
+		text-align:left;
+		font-size:11px;
+	}
+	.cabezalmenu .elmenu .itemsmenu ul li a{
+		line-height: 10vh;
+		text-indent:10px;
+	}
+	.cabezalmenu .elmenu .itemsmenu ul .buscador{
+		height: 10vh;
+		width:100%;
+	}
+	.cabezalmenu .elmenu .itemsmenu ul .buscador .input input{
+		height: 10vh;
+	}
+	.cabezalmenu .elmenu .itemsmenu ul .buscador .boton a{
+		height: 10vh;
+		width:46px;
+		float:right;
+	}	
+	/* NOTA PRINCIPAL */
+	.notaprincipal .lanota .imagen{
+		width:47%;
+		margin-right:3%;
+		margin-bottom:0px;
+		float:left;
+	}
+	.notaprincipal .lanota .textos{
+		width:43%;
+		float:left;
+		padding-left:2%;
+		text-align:left;
+		padding-top:20px;
+	}
+	.notaprincipal .lanota .textos .titulo h1 a{
+		font-size:22px;
+		line-height:29px;
+	}
+	/* DIVISAS */
+	.divisas .itemtitulo{
+		width:50px;
+		line-height:66px;
+		font-size:14px;
+	}
+	.divisas .itemcompra .nombre{
+		line-height:66px;
+		font-size:14px;
+	}
+	.divisas .itemcompra .valor{
+		line-height:57px;
+		font-size:24px;
+	}
+
+	/* NOTAS DOBLES */
+	.notasdobles {
+		margin-bottom: 0px;
+	}
+	.notasdobles .notaizq {
+		width: 100%;
+		float: left;
+		padding-bottom:35px;
+	}
+	.notasdobles .notader {
+		width: 100%;
+		float: left;
+		padding-bottom:35px;
+	}
+	.notasdobles .imagen {
+		width: 25%;
+		margin-bottom: 0px;
+		margin-right: 3%;
+		float: left;
+	}
+	.notasdobles .textos {
+		width: 72%;
+		float: left;
+		padding-bottom:0px;
+	}
+	.notasdobles .textos .titulo h2 a{
+		font-size:16px;
+		line-height:21px;
+		text-align:left;
+	}
+	.slider .textos .titulo h2 a{
+		font-size:15px;
+		line-height:20px;
+		text-align:left;
+	}
+	
+	/* SLIDER */
+	.slider{
+		width:94% !important;
+		margin-bottom:35px;
+		padding-bottom:20px !important;
+	}
+	.notasdobles .textos .volantagris{
+		width:30%;
+		margin:inherit;
+		margin-bottom:5px;
+	}
+	.cbp-fwdots {
+		position: absolute;
+		bottom: 00px;
+		white-space: nowrap;
+		text-align: left;
+		width: 72%;
+		margin-left: 28%;
+		height: 16px;
+	}
+	/* OBJETO VERTICAL */
+	.objetovertical .notaizq {
+		width: 100%;
+		float: left;
+	}
+	.objetovertical .notader {
+		width: 100%;
+		float: left;
+	}
+	.objetovertical .imagen {
+		width: 25%;
+		margin-bottom: 0px;
+		margin-right: 3%;
+		float: left;
+	}
+	.objetovertical .textos {
+		width: 72%;
+		float: left;
+		padding-bottom:0px;
+	}
+	.objetovertical .textos .titulo h2 a{
+		font-size:14px;
+		line-height:20px;
+		text-align:left;
+	}
+	.objetovertical .textos .volantaautos{
+		margin-top:0;
+		-webkit-border-top-right-radius: 20px;
+		-webkit-border-bottom-right-radius: 20px;
+		-moz-border-radius-topright: 20px;
+		-moz-border-radius-bottomright: 20px;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+	.objetovertical .textos .volantavinos{
+		margin-top:0;
+		-webkit-border-top-right-radius: 20px;
+		-webkit-border-bottom-right-radius: 20px;
+		-moz-border-radius-topright: 20px;
+		-moz-border-radius-bottomright: 20px;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+	.objetovertical .textos .volantarecreo{
+		margin-top:0;
+		-webkit-border-top-right-radius: 20px;
+		-webkit-border-bottom-right-radius: 20px;
+		-moz-border-radius-topright: 20px;
+		-moz-border-radius-bottomright: 20px;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+	/* NOTAS WIDE */
+	.notaswide{
+		width:95%;
+		margin-right:0;
+	}
+	.notaswide .lanota{
+		width:45%;
+		float:left;
+		margin-right:5%;
+	}
+	.notaswide .imagen{
+		width: 32%;
+		float: left;
+		margin-right: 3%;
+	}
+	.notaswide .textos{
+		width: 65%;
+		float: left;
+	}
+	/* OBJETO VERTICAL */
+	.objetovertical .notasimplewide .imagen {
+		width: 25%;
+		float: left;
+		margin-right: 3%;
+	}
+	.objetovertical .notasimplewide .textos {
+		width: 70%;
+		float: left;
+	}
+	.objetovertical .textos .titulo h2 a{
+		font-size: 17px;
+    	line-height: 21px;
+	}
+	.objetovertical .notasimplewide .textos .titulo h2 a{
+		font-size: 17px;
+    	line-height: 21px;
+	}
+	/* RECOMENDADO */
+	.notasrecomendadas .tira{
+		width:200%;
+		height:200px;
+		margin-top:20px;
+		margin-left:5%;
+	}
+	/* NOTA */
+	.ultimasnoticiaswide .lanota{
+		padding-bottom: 15px;
+    	padding-top: 15px;
+	}
+	.ultimasnoticiaswide .imagen{
+		width:20%;
+	}
+	.ultimasnoticiaswide .textos{
+		width: 77%;
+	}
+	.ultimasnoticiaswide .textos .titulo h2 a{
+		font-size: 17px;
+	    line-height: 21px;
+	}
+	.ultimasnoticiaswide .textos .volanta{
+		margin-bottom: 8px;
+	}
+}

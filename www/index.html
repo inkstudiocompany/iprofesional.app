@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='iprofesional'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>iProfesional M&oacute;vil</title>
+        <link href="assets/css/iprofmobile.css" rel="stylesheet"/>
+        <link href="assets/css/slider.css" rel="stylesheet"/>
+        <link href="assets/css/layout.css" rel="stylesheet"/>
+        <script src="assets/js/modernizr.custom.js"></script>
+        <script src="js/jquery.1.9.1.min.js"></script>
+        <script src="assets/js/jquery.cbpFWSlider.min.js"></script>
+
+        <script src='js/angular.min.js'></script>
+        <script src='app/js/app.js'></script>
+    </head>
+
+    <body ng-controller='appController'>
+        <div class="wrapper">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
