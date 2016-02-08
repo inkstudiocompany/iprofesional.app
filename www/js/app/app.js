@@ -1,6 +1,6 @@
 'use strict';
-//var urlsource = 'http://192.168.0.29/iprofesionalApp/iprofesional.json';
-var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
+var urlsource = 'http://192.168.0.29/iprofesionalApp/iprofesional.json';
+//var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
 iproapp.service('dataService', ['$http', 'dataFactory', '$q', 
@@ -33,10 +33,12 @@ iproapp.controller('appController',
 		$scope.$route = $route;
      	$scope.$location = $location;
      	$scope.$routeParams = $routeParams;
+     	$scope.start = true;
 
      	$scope.$on('$routeChangeStart', function (event, next, current) {
 			$('#loader').html('').data('loadie-loaded', 0).loadie(0);
-			$('#splashloader').show();
+			if($scope.start === false) $('#loading').show();
+			$scope.start = false;
 		});
 
 		$scope.$on('$viewContentLoaded', function(){
@@ -87,7 +89,7 @@ iproapp.controller('newsController',
 
 		setTimeout(function(){
      		$('#loader').loadie(1);
-     		$('#splashloader').hide();
+     		$('#loading').hide();
      	}, 1000);
 
 	}]
@@ -118,11 +120,12 @@ iproapp.directive('rowcontainer',
 			element.html(response);
 			$compile(element.contents())(scope);
 			$('#loader').html('').data('loadie-loaded', 0).loadie(0);
+			
 			if (scope.$parent.$last === true) {
              	slidersStart();
              	setTimeout(function(){
              		$('#loader').loadie(1);
-             		$('#splashloader').hide();
+             		$('#loading, #splashloader').hide();
              	}, 1000);
              	setTimeout(function(){
              		var swiper = new Swiper('.swiper-container', {

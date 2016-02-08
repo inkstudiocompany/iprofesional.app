@@ -2,3 +2,5 @@ iprofesional.keystore
 .htaccess
 node_modules
 source
+package.json
+gulpfile.js

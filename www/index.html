@@ -53,10 +53,13 @@
         <div id="loader"></div>
         <div class="wrapper" ng-view></div>
 
-        <div class="seccionespie" ng-include="'views/common/footer.html'"></div>
+        <div class="seccionespie" ng-include="'views/common/footer.html'" ng-show="content"></div>
 
         <div id="splashloader">
             <img src="images/logoiprofesional.png" />
+        </div>
+        <div id="loading" style="display:none">
+            <img src="images/loader.gif" />
         </div>
         
         <script type="text/javascript" src="js/iprofesionalmobile.js"></script>

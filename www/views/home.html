@@ -1,7 +1,7 @@
 <div class="cabezalmenu" ng-include="'views/common/cabezal_menu.html'"></div>
 
-<div class="notaprincipal" ng-include="'views/objetos/nota_principal.html'"></div>
+<div class="notaprincipal" ng-include="'views/objetos/nota_principal.html'" ng-show="content"></div>
 
-<div class="divisas" ng-include="'views/divisas.html'"></div>
+<div class="divisas" ng-include="'views/divisas.html'" ng-show="content"></div>
 
-<rowcontainer ng-repeat="(key, item) in content.filas" info="item" row="key"></rowcontainer>
+<rowcontainer ng-repeat="(key, item) in content.filas" info="item" row="key" ng-show="content"></rowcontainer>
