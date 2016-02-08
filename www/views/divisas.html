@@ -1,0 +1,46 @@
+<div id="itemsdivisas">    
+  <div class="ladivisa">
+    <div class="itemtitulo">D&Oacute;LAR</div>
+    <div class="itemcompra">
+      <div class="nombre">COMPRA</div>
+      <div class="valor">${{ divisas.dolar.compra.valor }}</div>
+      <div class="{{ divisas.dolar.compra.tendencia }}">{{ divisas.dolar.compra.tendencia }}</div>
+    </div>
+    <div class="itemcompra">
+      <div class="nombre">VENTA</div>
+      <div class="valor">${{ divisas.dolar.venta.valor }}</div>
+      <div class="{{ divisas.dolar.venta.tendencia }}">{{ divisas.dolar.venta.tendencia }}</div>
+    </div>
+  </div>
+  
+  <div class="ladivisa">
+    <div class="itemtitulo">REAL</div>
+    <div class="itemcompra">
+      <div class="nombre">COMPRA</div>
+      <div class="valor">${{ divisas.real.compra.valor }}</div>
+      <div class="{{ divisas.real.compra.tendencia }}">{{ divisas.real.compra.tendencia }}</div>
+    </div>
+    <div class="itemcompra">
+      <div class="nombre">VENTA</div>
+      <div class="valor">${{ divisas.real.venta.valor }}</div>
+      <div class="{{ divisas.real.venta.tendencia }}">{{ divisas.real.venta.tendencia }}</div>
+    </div>
+  </div>
+  
+  <div class="ladivisa">
+    <div class="itemtitulo">EURO</div>
+    <div class="itemcompra">
+      <div class="nombre">COMPRA</div>
+      <div class="valor">${{ divisas.euro.compra.valor }}</div>
+      <div class="{{ divisas.euro.compra.tendencia }}">{{ divisas.euro.compra.tendencia }}</div>
+    </div>
+    <div class="itemcompra">
+      <div class="nombre">VENTA</div>
+      <div class="valor">${{ divisas.euro.venta.valor }}</div>
+      <div class="{{ divisas.euro.venta.tendencia }}">{{ divisas.euro.venta.tendencia }}</div>
+    </div>
+  </div>
+  
+</div>    
+<div id="masdivisas" onClick="abrirDivisas()"></div>
+<div id="cerrardivisas" onClick="cerrarDivisas()"></div>

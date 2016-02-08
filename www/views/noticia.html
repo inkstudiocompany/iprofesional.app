@@ -1,0 +1,30 @@
+<div class="cabezalmenu" ng-include="'views/common/cabezal_menu.html'"></div>
+
+<div class="bannerwidetop"></div>
+
+<div class="desarrollonota">
+	<div class="volantanota">
+		<div class="tema">{{ noticia.seccion }}</div>
+		<div class="fecha">
+			<strong>{{ noticia.publicacion * 1000 | date : 'dd.MM.yyyy' }}</strong> 
+			{{ noticia.publicacion * 1000 | date : 'HH:mm' }}hs
+		</div>
+  	</div>
+    <div class="titulonota">
+    	<h2>{{ noticia.titulo }}</h2>
+	</div>
+    <div class="bajadanota">
+    	<h3 ng-show="noticia.copete" ng-bind-html="noticia.copete"></h3>
+    	<h3 ng-show="noticia.copete_grande && !noticia.copete" ng-bind-html="noticia.copete_grande"></h3>
+	</div>
+	<div class="autor" ng-show="noticia.autor">
+        Por <strong>{{ noticia.autor }}</strong>
+    </div>
+    <div class="fotonota">
+    	<img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-show="noticia.adjuntos.imagen_principal != false">
+      <img src="{{ noticia.adjuntos.imagenes[0].path }}" ng-show="noticia.adjuntos.imagen_principal == false && noticia.adjuntos.imagenes != false">
+	</div>
+    <div class="redesnota" ng-include="'views/common/redes-sociales.html'"></div>
+    <div class="textonota" ng-bind-html="noticia.descripcion"></div>
+    <div class="redesnota" ng-include="'views/common/redes-sociales.html'"></div>
+</div>

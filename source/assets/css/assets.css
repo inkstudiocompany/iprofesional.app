@@ -1,0 +1,7 @@
+#loader{ position: fixed; z-index: 99999; top:0; width: 100vw; width: 100%; }
+div#splashloader{ position: fixed; z-index: 99999; top:5px; width: 100vw; width: 100%; height: 100vh; height: 100%; background: #21272e; }
+div#splashloader img{ width: 60%; width: 60vw; margin: 45% 20%; margin: 45vh 20vw; 
+	-webkit-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+opacity: 0.1;}
+div#splashloader img.ready{ opacity: 1;}

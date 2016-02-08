@@ -1,0 +1,10 @@
+<div class="cabezalmenu" ng-include="'views/common/cabezal_menu.html'"></div>
+
+<div class="nombreseccion">
+    <div class="titulo">{{ content.titulo }}</div>
+    <div class="vermas" onClick="desplegarRecomendadas()">Recomendadas</div>
+</div>
+
+<rowcontainer ng-repeat="(key, item) in content.filas" info="item" row="key"></rowcontainer>
+
+<div class="objetozoomhome swiper-container" ng-include="'views/especiales/zoom.html'"></div>

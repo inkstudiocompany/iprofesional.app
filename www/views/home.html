@@ -1,0 +1,7 @@
+<div class="cabezalmenu" ng-include="'views/common/cabezal_menu.html'"></div>
+
+<div class="notaprincipal" ng-include="'views/objetos/nota_principal.html'"></div>
+
+<div class="divisas" ng-include="'views/divisas.html'"></div>
+
+<rowcontainer ng-repeat="(key, item) in content.filas" info="item" row="key"></rowcontainer>
