@@ -57,6 +57,7 @@ iproapp.controller('appController',
 iproapp.controller('homeController', 
 	['$scope', 'templateService', 'dataFactory', 'dataService',
 	function($scope, templateService, dataFactory, dataService){
+		$scope.content = false;
 		dataService.load().then(function(response){
 			$scope.content = dataFactory.getSeccion('home');
 			$scope.divisas = dataFactory.divisas();
@@ -71,6 +72,7 @@ iproapp.controller('seccionController',
 	function($scope, templateService, dataFactory, dataService, $routeParams){
 		$scope = dataFactory.getScope();
 		$scope.$routeParams = $routeParams;
+		$scope.content = false;
 		
 		dataService.load().then(function(response){
 			$scope.content = dataFactory.getSeccion($routeParams.seccion);
@@ -84,7 +86,7 @@ iproapp.controller('seccionController',
 iproapp.controller('newsController', 
 	['$scope', 'templateService', '$routeParams', '$route', '$location', 'dataFactory',
 	function($scope, templateService, $routeParams, $route, $location, dataFactory){
-		
+		$scope.noticia = false;
 		$scope.noticia = dataFactory.getNota($routeParams.notaId);
 
 		setTimeout(function(){
