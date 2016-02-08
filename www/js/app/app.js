@@ -1,6 +1,6 @@
 'use strict';
-var urlsource = 'http://192.168.0.29/iprofesionalApp/iprofesional.json';
-//var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
+//var urlsource = 'http://192.168.0.29/iprofesionalApp/iprofesional.json';
+var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
 iproapp.service('dataService', ['$http', 'dataFactory', '$q', 
@@ -40,20 +40,11 @@ iproapp.controller('appController',
 		});
 
 		$scope.$on('$viewContentLoaded', function(){
-			
   			$(window).scrollTop(0);
-    $location.replace(); //clear last history route
-});
-		// $scope.$on('$locationChangeSuccess', function(a, b,  c, d, e){
-		// 	console.log(a, b,  c, d, e);
-		// 	if($rootScope.actualLocation === b) {
-  //           alert('Why did you use history back?');
-  //       }
-		// });
-
-		// $scope.$on('$routeChangeSuccess', function (event, next, current) {
-  			
-		// });
+		});
+		$scope.$on('$locationChangeSuccess', function(a, b,  c, d, e){
+			$location.replace(); //clear last history route
+		});
 
 		dataFactory.setScope($scope);
 		
