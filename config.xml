@@ -23,6 +23,15 @@
   <preference name="android-installLocation" value="auto"/>
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" src="pgb" />
+  <feature name="SocialSharing">
+    <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+  </feature>
+  <feature name="SocialSharing">
+    <param name="ios-package" value="SocialSharing" />
+  </feature>
+  <feature name="SocialSharing">
+    <param name="wp-package" value="SocialSharing"/>
+  </feature>
   <icon src="icon.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
