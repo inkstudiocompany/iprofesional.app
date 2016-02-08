@@ -55,9 +55,9 @@ iproapp.controller('appController',
   			
 		// });
 
-		//dataFactory.setScope($scope);
+		dataFactory.setScope($scope);
 		
-		//$location.url('/');
+		$location.url('/');
 	}]
 );
 
