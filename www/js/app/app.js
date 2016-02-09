@@ -2,8 +2,9 @@
 //var urlsource = 'http://192.168.0.29/iprofesionalApp/iprofesional.json';
 //var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
 //var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/mobile/app/iproapp.php';
-var urlsource = 'http://deviprofesional.com/api/v1/mobile.php?v=' + Math.random();
-// var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/api/v1/mobile.php?v=' + Math.random();
+//var urlsource = 'http://deviprofesional.com/api/v1/mobile.php?v=' + Math.random();
+// var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/service/json/iprofesional.json?v=' + Math.random();
+var urlsource = 'http://deviprofesional.com/service/json/iprofesional.json?v=' + Math.random();
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
 iproapp.service('dataService', ['$http', 'dataFactory', '$q', 
@@ -61,12 +62,21 @@ iproapp.controller('homeController',
 	['$scope', 'templateService', 'dataFactory', 'dataService',
 	function($scope, templateService, dataFactory, dataService){
 		$scope.content = false;
-		dataService.load().then(function(response){
+
+		if(dataFactory.status === 500) {
+			dataService.load().then(function(response){
+				$scope.content = dataFactory.getSeccion('home');
+				$scope.divisas = dataFactory.divisas();
+				$scope.zoom = dataFactory.zoom();
+				$scope.masleidas = dataFactory.masleidas();
+			});
+		} 
+		if(dataFactory.status === 200) {
 			$scope.content = dataFactory.getSeccion('home');
 			$scope.divisas = dataFactory.divisas();
 			$scope.zoom = dataFactory.zoom();
 			$scope.masleidas = dataFactory.masleidas();
-		});
+		}
 	}]
 );
 
@@ -76,13 +86,20 @@ iproapp.controller('seccionController',
 		$scope = dataFactory.getScope();
 		$scope.$routeParams = $routeParams;
 		$scope.content = false;
-		
-		dataService.load().then(function(response){
+		if(dataFactory.status === 500) {
+			dataService.load().then(function(response){
+				$scope.content = dataFactory.getSeccion($routeParams.seccion);
+				$scope.divisas = dataFactory.divisas();
+				$scope.zoom = dataFactory.zoom();
+				$scope.masleidas = dataFactory.masleidas();
+			});	
+		}
+		if(dataFactory.status === 200) {
 			$scope.content = dataFactory.getSeccion($routeParams.seccion);
 			$scope.divisas = dataFactory.divisas();
 			$scope.zoom = dataFactory.zoom();
 			$scope.masleidas = dataFactory.masleidas();
-		});
+		}
 	}]
 );
 
@@ -207,6 +224,7 @@ iproapp.directive('notaswide', function($compile, templateService){
 iproapp.factory('dataFactory', function($http){
 	return {
 			$scope: null,
+			status: 500,
 			data: {
 
 			},
@@ -218,6 +236,7 @@ iproapp.factory('dataFactory', function($http){
 			},
 			setContent: function(content){
 				this.data = content.data;
+				this.status = 200;
 			},
 			getContent: function(){
 				return this.data;
