@@ -3,7 +3,7 @@
         <ul>
             <li ng-repeat="noticia in objeto.noticias">
                 <div class="imagen">
-                    <a href="#/nota/{{ noticia.id }}/{{ noticia.titulo_seo }}">
+                    <a href="{{ noticia.app_url }}">
                         <img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-show="noticia.adjuntos.imagen_principal != false">
       <img src="{{ noticia.adjuntos.imagenes[0].path }}" ng-show="noticia.adjuntos.imagen_principal == false && noticia.adjuntos.imagenes != false">
 					</a>
@@ -14,8 +14,8 @@
                     </div>
 					<div class="titulo">
                 		<h2>
-                			<a href="#/nota/{{ noticia.id }}/{{ noticia.titulo_seo }}" ng-show="noticia.titulo_home">{{ noticia.titulo_home }}</a>
-        					<a href="#/nota/{{ noticia.id }}/{{ noticia.titulo_seo }}" ng-hide="noticia.titulo_home">{{ noticia.titulo }}</a>
+                			<a href="{{ noticia.app_url }}" ng-show="noticia.titulo_home">{{ noticia.titulo_home }}</a>
+        					<a href="{{ noticia.app_url }}" ng-hide="noticia.titulo_home">{{ noticia.titulo }}</a>
             			</h2>
       				</div>
                 </div>

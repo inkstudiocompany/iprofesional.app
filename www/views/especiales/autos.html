@@ -3,7 +3,7 @@
   
   <div ng-repeat="noticia in fila.noticias" class="{{ noticia.class }}">
     <div class="imagen">
-      <a href="#/nota/{{ noticia.id }}/{{ noticia.titulo_seo }}">
+      <a href="{{ noticia.app_url }}">
         <img src="{{ noticia.imagen }}">
       </a>
     </div>
@@ -11,7 +11,7 @@
       <div class="volantaautos">Novedades</div>
       <div class="titulo">
         <h2>
-          <a href="#/nota/{{ noticia.id }}/{{ noticia.titulo_seo }}">
+          <a href="{{ noticia.app_url }}">
             {{ noticia.titulo }}
           </a>
         </h2>

@@ -1,6 +1,6 @@
 <div class="{{ objeto.class }}">
   <div class="imagen">
-    <a href="#/nota/{{ objeto.noticias.id }}/{{ objeto.noticias.titulo_seo }}">
+    <a href="{{ noticia.app_url }}">
       <img src="{{ objeto.noticias.adjuntos.imagen_principal.path }}" ng-show="objeto.noticias.adjuntos.imagen_principal != false">
       <img src="{{ objeto.noticias.adjuntos.imagenes[0].path }}" ng-show="objeto.noticias.adjuntos.imagen_principal == false && objeto.noticias.adjuntos.imagenes != false">
     </a>
@@ -11,7 +11,7 @@
           </div>
             <div class="titulo">
             <h2>
-              <a href="#/nota/{{ objeto.noticias.id }}/{{ objeto.noticias.titulo_seo }}">
+              <a href="{{ noticia.app_url }}">
               {{ objeto.noticias.titulo }}
             </a>
         </h2>

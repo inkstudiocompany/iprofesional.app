@@ -3,7 +3,7 @@
     <div class="lineanotas" ng-repeat="index in [0, 2]">
       <div class="notaizq">
         <div class="imagen">
-          <a href="#/nota/{{ fila.noticias[index].id }}/{{ fila.noticias[index].titulo_seo }}">
+          <a href="{{ fila.noticias[index].app_url }}">
             <img src="{{ fila.noticias[index].adjuntos.imagen_principal.path }}">
           </a>
         </div>
@@ -11,13 +11,13 @@
           <div class="volantarecreo">{{ fila.noticias[index].seccion }}</div>
           <div class="titulo">
             <h2>
-              <a href="#/nota/{{ fila.noticias[index].id }}/{{ fila.noticias[index].titulo_seo }}">{{ fila.noticias[index].titulo }}</a></h2>
+              <a href="{{ fila.noticias[index].app_url }}">{{ fila.noticias[index].titulo }}</a></h2>
           </div>
         </div>
       </div>
       <div class="notader">
         <div class="imagen">
-          <a href="#/nota/{{ fila.noticias[index+1].id }}/{{ fila.noticias[index+1].titulo_seo }}">
+          <a href="{{ fila.noticias[index+1].app_url }}">
             <img src="{{ fila.noticias[index+1].adjuntos.imagen_principal.path }}">
           </a>
         </div>
@@ -25,7 +25,7 @@
           <div class="volantarecreo">{{ fila.noticias[index+1].seccion }}</div>
           <div class="titulo">
             <h2>
-              <a href="#/nota/{{ fila.noticias[index+1].id }}/{{ fila.noticias[index+1].titulo_seo }}">{{ fila.noticias[index+1].titulo }}</a></h2>
+              <a href="{{ fila.noticias[index+1].app_url }}">{{ fila.noticias[index+1].titulo }}</a></h2>
           </div>
         </div>
       </div>
