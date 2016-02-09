@@ -2,8 +2,8 @@
 //var urlsource = 'http://192.168.0.29/iprofesionalApp/iprofesional.json';
 //var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
 //var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/mobile/app/iproapp.php';
-//var urlsource = 'http://deviprofesional.com/api/v1/mobile.php';
-var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/api/v1/mobile.php?v=' + Math.random();
+var urlsource = 'http://deviprofesional.com/api/v1/mobile.php?v=' + Math.random();
+// var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/api/v1/mobile.php?v=' + Math.random();
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
 iproapp.service('dataService', ['$http', 'dataFactory', '$q', 

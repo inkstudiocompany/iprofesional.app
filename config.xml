@@ -21,9 +21,8 @@
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
 
-  <preference name="SplashScreen" value="splash.png" />
   <preference name="SplashScreenBackgroundColor" value="green" />
-  <preference name="SplashScreenDelay" value="3000" />
+  <preference name="SplashScreenDelay" value="0" />
   
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" src="pgb" />
@@ -51,7 +50,6 @@
   <icon src="www/res/icon/windows-phone/icon-48.png" gap:platform="winphone"/>
   <icon src="www/res/icon/windows-phone/icon-173-tile.png" gap:platform="winphone" gap:role="background"/>
   <gap:splash src="splash.png" gap:platform="android" />
-  <splash src="splash.png" />
   <gap:splash src="www/res/screen/android/screen-ldpi-portrait.png" gap:platform="android" gap:qualifier="port-ldpi"/>
   <gap:splash src="www/res/screen/android/screen-mdpi-portrait.png" gap:platform="android" gap:qualifier="port-mdpi"/>
   <gap:splash src="www/res/screen/android/screen-hdpi-portrait.png" gap:platform="android" gap:qualifier="port-hdpi"/>
