@@ -20,6 +20,11 @@
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
+
+  <preference name="SplashScreen" value="splash.png" />
+  <preference name="SplashScreenBackgroundColor" value="green" />
+  <preference name="SplashScreenDelay" value="3000" />
+  
   <gap:plugin name="org.apache.cordova.splashscreen"/>
   <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" src="pgb" />
   <feature name="SocialSharing">
