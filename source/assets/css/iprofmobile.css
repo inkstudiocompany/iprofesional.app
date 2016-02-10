@@ -1413,10 +1413,8 @@ h1, h2, h3{
 }
 .objetozoomhome{
 	width: 90%;
-	padding-left:5%;
-	padding-right:5%;
-	padding-top:25px;
-	margin-bottom:35px;
+	padding: 25px 5% 25px 5%;
+	margin-bottom:35px !important;
 	float:left;
 	background-color:#293039;
 }

@@ -3,8 +3,9 @@
 //var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
 //var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/mobile/app/iproapp.php';
 //var urlsource = 'http://deviprofesional.com/api/v1/mobile.php?v=' + Math.random();
+var urlsource = 'http://192.168.0.29/iprofesional/service/json/iprofesional.json?v=' + Math.random();
 // var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/service/json/iprofesional.json?v=' + Math.random();
-var urlsource = 'http://deviprofesional.com/service/json/iprofesional.json?v=' + Math.random();
+
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
 iproapp.service('dataService', ['$http', 'dataFactory', '$q', 
@@ -108,7 +109,7 @@ iproapp.controller('newsController',
 	function($scope, templateService, $routeParams, $route, $location, dataFactory){
 		$scope.noticia = false;
 		$scope.noticia = dataFactory.getNota($routeParams.notaId);
-
+		console.log($scope.noticia);
 		setTimeout(function(){
      		$('#loader').loadie(1);
      		$('#loading').hide();
@@ -136,7 +137,7 @@ iproapp.directive('rowcontainer',
 
 	var linker = function(scope, element, attrs) {
 		templateService.get(getTemplate(scope)).then(function(response){
-			if(scope.row == 5) {
+			if(scope.row == 7) {
 				scope.zoom = dataFactory.zoom();
 			}
 			element.html(response);
