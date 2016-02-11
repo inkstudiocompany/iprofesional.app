@@ -4,7 +4,8 @@
 //var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/mobile/app/iproapp.php';
 //var urlsource = 'http://deviprofesional.com/api/v1/mobile.php?v=' + Math.random();
 var urlsource = 'http://192.168.0.29/iprofesional/service/json/iprofesional.json?v=' + Math.random();
-// var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/service/json/iprofesional.json?v=' + Math.random();
+//var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/service/json/iprofesional.json?v=' + Math.random();
+//var urlsource = 'http://www.iprofesional.com/service/json/iprofesional.json?v=' + Math.random();
 
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 

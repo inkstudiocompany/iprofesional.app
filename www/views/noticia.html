@@ -27,7 +27,7 @@
     <div>
     <button onclick="window.plugins.socialsharing.shareViaTwitter('Message via Twitter')">message via Twitter</button>
 <button onclick="window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null, 'http://www.x-services.nl')">msg and link via Twitter</button>
-<button onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null, null, console.log('share ok'), function(errormsg){alert(errormsg)})">msg via Facebook (with errcallback)</button>
+<button onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', {{ noticia.adjuntos.imagen_principal.path }}, {{ noticia.adjuntos.imagen_principal.url }}, console.log('share ok'), function(errormsg){alert(errormsg)})">msg via Facebook (with errcallback)</button>
 <button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null, null, console.log('share ok'), function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
     </div>
     <div class="redesnota" ng-include="'views/common/redes-sociales.html'"></div>
