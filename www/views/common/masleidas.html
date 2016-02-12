@@ -1,0 +1,22 @@
+<div class="titobjeto">&Uacute;ltimas noticias</div>
+<div class="lanota" ng-repeat="noticia in masleidas">
+  <div class="imagen">
+    <a href="{{ noticia.app_url }}">
+      <img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-if="noticia.adjuntos.imagen_principal">
+      <img src="{{ noticia.adjuntos.imagenes[0].path }}" ng-if="noticia.adjuntos.imagen_principal == true && noticia.adjuntos.imagenes != false">
+    </a>
+  </div>
+  <div class="textos">
+    <div class="volanta">
+      <div class="tema">{{ noticia.seccion }}</div>
+      <div class="hora">{{ noticia.publicacion * 1000 | date : 'HH:mm' }}hs</div>
+    </div>
+    <div class="titulo">
+      <h2>
+        <a href="{{ noticia.app_url }}">
+          {{ noticia.titulo }}
+        </a>
+      </h2>
+    </div>
+  </div>
+</div>
