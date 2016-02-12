@@ -126,16 +126,75 @@ iproapp.controller('newsController',
      		$('#loading').hide();
      	}, 1000);
 
-		$scope.share = function() {
-			var message = $scope.noticia.titulo;
-			var imagen = $scope.noticia.adjuntos.imagen_principal.path;
+		$scope.share = function(channel) {
+			var message = 'iProfesional: ' + $scope.noticia.titulo;
+			var imagen = '';
 			var url = $scope.noticia.url;
-			
-			window.plugins.socialsharing.shareViaFacebook(message, imagen, url, 
-				console.log('share ok'), 
+			var short_url = $scope.noticia.short_url;
+
+			if ($scope.noticia.adjuntos.imagen_principal !== false) {
+				imagen = $scope.noticia.adjuntos.imagen_principal.path;
+			} else if ($scope.noticia.adjuntos.imagenes[0] !== false) {
+				imagen = $scope.noticia.adjuntos.imagenes[0].path;
+			}
+
+			console.log(message, imagen, url, short_url);
+
+			if (channel === 'facebook') {
+				window.plugins.socialsharing.shareViaFacebook(message +' '+short_url, imagen, url, 
+				function(response){
+					console.log('share ok' + response);
+				},
 				function(errormsg){
-					alert(errormsg);
+					console.log(errormsg);
 				});
+			}
+			if (channel === 'twitter') {
+				window.plugins.socialsharing.shareViaTwitter(message, imagen, short_url);
+			}
+			if (channel === 'google') {
+				window.plugins.socialsharing.shareVia('com.google.android.apps.plus',
+					message, imagen, url, 
+					function(response){
+						console.log('share ok' + response);
+					},
+					function(errormsg){
+						console.log(errormsg);
+					}
+				);
+			}
+			if (channel === 'linkedin') {
+				window.plugins.socialsharing.shareVia('com.linkedin.android',
+					message, imagen, url, 
+					function(response){
+						console.log('share ok' + response);
+					},
+					function(errormsg){
+						console.log(errormsg);
+					}
+				);
+			}
+			if (channel === 'whatsapp') {
+				window.plugins.socialsharing.shareViaWhatsApp(
+					message, imagen, short_url, 
+					function() {
+						console.log('share ok')
+					}, 
+					function(errormsg){
+						alert(errormsg)
+					}
+				);
+			}
+			if (channel === 'email') {
+				window.plugins.socialsharing.shareViaEmail(
+				  message + '<br /><a href="' + url + '">Mira la noticia aquí</a>',
+				  'iProfesional:' + $scope.noticia.titulo,
+				  null,
+				  null,
+				  null, // BCC: must be null or an array
+				  [imagen]
+				);
+			}
 		}
 	}]
 )
