@@ -3,13 +3,20 @@
 //var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
 //var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/mobile/app/iproapp.php';
 //var urlsource = 'http://deviprofesional.com/api/v1/mobile.php?v=' + Math.random();
-//var urlsource = 'http://192.168.0.29/iprofesional/service/json/iprofesional.json?v=' + Math.random();
-//var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/service/json/iprofesional.json?v=' + Math.random();
-var urlsource = 'http://www.iprofesional.com/service/json/iprofesional.json?v=' + Math.random();
+var urlsource = 'http://192.168.0.29/iprofesional/service/json/iprofesional.json?v=' + Math.random();
+// var urlsource = 'http://deviprofesional.com/service/json/iprofesional.json?v=' + Math.random();
+// var urlsource = 'http://www.iprofesional.com/service/json/iprofesional.json?v=' + Math.random();
 
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
-iproapp.service('dataService', ['$http', 'dataFactory', '$q', 
+iproapp.config(['$httpProvider', function($httpProvider) {
+	    $httpProvider.defaults.useXDomain = true;
+	    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+	}
+]);
+
+
+iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 	function($http, dataFactory, $q){
 
 	this.load = function() {
@@ -17,9 +24,9 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
         var promise = defer.promise;
         	$http({
 				method: 'GET',
-				url: urlsource,
-				headers: {
-	               'Content-Type': 'js/json',
+	            url: urlsource,
+	            headers: {
+	               'Content-Type': 'x-www-form-urlencoded'
 	            }
 			}).then(function(response){
 				$('#splashloader img').addClass('ready');
@@ -27,6 +34,9 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 					dataFactory.setContent(response);
 					defer.resolve(true);
 				}, 1000);
+			},
+			function(response){
+				alert(JSON.stringify(response));
 			});
 
         return promise;
@@ -110,12 +120,23 @@ iproapp.controller('newsController',
 	function($scope, templateService, $routeParams, $route, $location, dataFactory){
 		$scope.noticia = false;
 		$scope.noticia = dataFactory.getNota($routeParams.notaId);
-		console.log($scope.noticia);
+		
 		setTimeout(function(){
      		$('#loader').loadie(1);
      		$('#loading').hide();
      	}, 1000);
 
+		$scope.share = function() {
+			var message = $scope.noticia.titulo;
+			var imagen = $scope.noticia.adjuntos.imagen_principal.path;
+			var url = $scope.noticia.url;
+			
+			window.plugins.socialsharing.shareViaFacebook(message, imagen, url, 
+				console.log('share ok'), 
+				function(errormsg){
+					alert(errormsg);
+				});
+		}
 	}]
 )
 
