@@ -3,9 +3,10 @@
 //var urlsource = 'http://deviprofesional.com/mobile/app/iproapp.php';
 //var urlsource = 'http://www.iprofesional.pre.grupovi-da.biz/mobile/app/iproapp.php';
 //var urlsource = 'http://deviprofesional.com/api/v1/mobile.php?v=' + Math.random();
-var urlsource = 'http://192.168.0.29/iprofesional/service/json/iprofesional.json?v=' + Math.random();
+// var urlsource = 'http://192.168.0.29/iprofesional/service/json/iprofesional.json?v=' + Math.random();
 // var urlsource = 'http://deviprofesional.com/service/json/iprofesional.json?v=' + Math.random();
 // var urlsource = 'http://www.iprofesional.com/service/json/iprofesional.json?v=' + Math.random();
+var urlsource = 'http://www.inkstudio.esy.es/service/json/iprofesional.json?v=' + Math.random();
 
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
@@ -120,6 +121,7 @@ iproapp.controller('newsController',
 	function($scope, templateService, $routeParams, $route, $location, dataFactory){
 		$scope.noticia = false;
 		$scope.noticia = dataFactory.getNota($routeParams.notaId);
+		$scope.masleidas = dataFactory.masleidas();
 		
 		setTimeout(function(){
      		$('#loader').loadie(1);
@@ -141,7 +143,7 @@ iproapp.controller('newsController',
 			console.log(message, imagen, url, short_url);
 
 			if (channel === 'facebook') {
-				window.plugins.socialsharing.shareViaFacebook(message +' '+short_url, imagen, url, 
+				window.plugins.socialsharing.shareViaFacebook(message +' '+short_url, null, url, 
 				function(response){
 					console.log('share ok' + response);
 				},
@@ -154,7 +156,7 @@ iproapp.controller('newsController',
 			}
 			if (channel === 'google') {
 				window.plugins.socialsharing.shareVia('com.google.android.apps.plus',
-					message, imagen, url, 
+					message + ' ' + short_url, null, imagen, url, 
 					function(response){
 						console.log('share ok' + response);
 					},
@@ -165,7 +167,7 @@ iproapp.controller('newsController',
 			}
 			if (channel === 'linkedin') {
 				window.plugins.socialsharing.shareVia('com.linkedin.android',
-					message, imagen, url, 
+					message, null, imagen, url, 
 					function(response){
 						console.log('share ok' + response);
 					},
@@ -181,7 +183,7 @@ iproapp.controller('newsController',
 						console.log('share ok')
 					}, 
 					function(errormsg){
-						alert(errormsg)
+						
 					}
 				);
 			}
