@@ -64,10 +64,12 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1024"/>
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
-  <access origin="*"/>
-  <access origin="http://deviprofesional.com" subdomains="true"/>
+  <access origin="*" subdomains="true"/>
+  <!-- <access origin="http://deviprofesional.com" subdomains="true"/>
   <access origin="http://iprofesional.com" subdomains="true"/>
   <access origin="http://www.inkstudio.esy.es" subdomains="true"/>
+  <access origin="http://www.inkstudio.esy.es/*" subdomains="true"/>
+  <access uri="*" subdomains="true" /> -->
   <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>

@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 var apisource = 'http://deviprofesional.com/api/v1/seccion/';
 var servicesource = 'http://deviprofesional.com/service/json/';
@@ -33,13 +33,16 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 			// function(response){ 
 			// 	alert(JSON.stringify(response));
 			// });
-
+			$.support.cors = true;
 			$.ajax({
 				method: 'GET',
 				url: url,
 				dataType: 'jsonp',
 				jsonpCallback: 'get',
-				success: function(response) { alert(response);
+				contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+				crossDomain: true,
+   				cache: false,
+				success: function(response) { alert(JSON.stringify(response));
 					$('#splashloader img').addClass('ready');
 					setTimeout(function(){
 						dataFactory.setSeccion(seccion, response);
@@ -50,7 +53,11 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
   				alert( "Request failed: " + JSON.stringify(jqXHR) );
   				alert( "Request failed: " + JSON.stringify(textStatus) );
   				alert( "Request failed: " + JSON.stringify(errorThrown) );
-			});
+			}).done(function( msg ) {
+		    alert( "Data Saved: " + msg );
+		  }).complete(function(response){
+		  	alert(response);
+		  });
 
         return promise;
 	}
@@ -318,7 +325,7 @@ iproapp.directive('notaswide', function($compile, templateService){
 
 
 
-'use strict';
+//'use strict';
 
 var templates = {
 	'divisas': 'views/divisas.html',
@@ -446,7 +453,7 @@ iproapp.config(['$routeProvider', '$locationProvider',
       
       $locationProvider.html5Mode(false);
 }]);
-'use strict';
+//'use strict';
 /*
 var share = function (text, imagen, channel) {
 	alert('vamos a compartir esta cosa!');
