@@ -5,8 +5,9 @@
 //var urlsource = 'http://deviprofesional.com/api/v1/mobile.php?v=' + Math.random();
 // var urlsource = 'http://192.168.0.29/iprofesional/service/json/iprofesional.json?v=' + Math.random();
 // var urlsource = 'http://deviprofesional.com/service/json/iprofesional.json?v=' + Math.random();
-// var urlsource = 'http://www.iprofesional.com/service/json/iprofesional.json?v=' + Math.random();
-var urlsource = 'http://www.inkstudio.esy.es/service/json/iprofesional.json?v=' + Math.random();
+// var urlsource = 'http://www.iprofesional.com/service/json/iprofesional.json?callback=parseResponse';
+//var urlsource = 'http://www.inkstudio.esy.es/service/json/iprofesional.json?v=' + Math.random();
+var apisource = 'http://deviprofesional.com/api/v1/';
 
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
@@ -15,29 +16,31 @@ iproapp.config(['$httpProvider', function($httpProvider) {
 	    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 	}
 ]);
-
-
+var test = null;
 iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 	function($http, dataFactory, $q){
 
-	this.load = function() {
+	this.load = function() { alert('vamos a leer');
 		var defer = $q.defer();
         var promise = defer.promise;
         	$http({
-				method: 'GET',
-	            url: urlsource,
-	            headers: {
-	               'Content-Type': 'x-www-form-urlencoded'
-	            }
-			}).then(function(response){
+        		method: 'GET',
+        		url: apisource + 'seccion/home'
+        	}).then(function(response){ test = response;
+				$('#splashloader img').addClass('ready');
+				setTimeout(function(){
+					//dataFactory.setContent(response);
+					dataFactory.setSeccion('home', response);
+					defer.resolve(true);
+				}, 1000);
+			},
+			function(response){ console.log(response);
+				alert(JSON.stringify(response));
 				$('#splashloader img').addClass('ready');
 				setTimeout(function(){
 					dataFactory.setContent(response);
 					defer.resolve(true);
 				}, 1000);
-			},
-			function(response){
-				alert(JSON.stringify(response));
 			});
 
         return promise;
@@ -51,7 +54,7 @@ iproapp.controller('appController',
      	$scope.$location = $location;
      	$scope.$routeParams = $routeParams;
      	$scope.start = true;
-
+alert('pudat');
      	$scope.$on('$routeChangeStart', function (event, next, current) {
 			$('#loader').html('').data('loadie-loaded', 0).loadie(0);
 			if($scope.start === false) $('#loading').show();
@@ -66,7 +69,7 @@ iproapp.controller('appController',
 		});
 
 		dataFactory.setScope($scope);
-		
+		alert('hola');
 		$location.url('/');
 	}]
 );
@@ -74,14 +77,15 @@ iproapp.controller('appController',
 iproapp.controller('homeController', 
 	['$scope', 'templateService', 'dataFactory', 'dataService',
 	function($scope, templateService, dataFactory, dataService){
-		$scope.content = false;
-
+		$scope.content = false; alert('test');
+console.log(dataFactory.status);
 		if(dataFactory.status === 500) {
-			dataService.load().then(function(response){
+			dataService.load().then(function(response){ alert(response);
 				$scope.content = dataFactory.getSeccion('home');
 				$scope.divisas = dataFactory.divisas();
 				$scope.zoom = dataFactory.zoom();
 				$scope.masleidas = dataFactory.masleidas();
+				$scope.noticias = dataFactory.Noticias();
 			});
 		} 
 		if(dataFactory.status === 200) {
@@ -89,6 +93,7 @@ iproapp.controller('homeController',
 			$scope.divisas = dataFactory.divisas();
 			$scope.zoom = dataFactory.zoom();
 			$scope.masleidas = dataFactory.masleidas();
+			$scope.noticias = dataFactory.Noticias();
 		}
 	}]
 );
@@ -305,57 +310,5 @@ iproapp.directive('notaswide', function($compile, templateService){
     };
 });
 
-iproapp.factory('dataFactory', function($http){
-	return {
-			$scope: null,
-			status: 500,
-			data: {
 
-			},
-			setScope: function($scope){
-				this.$scope = $scope;
-			},
-			getScope: function(){
-				return this.$scope;
-			},
-			setContent: function(content){
-				this.data = content.data;
-				this.status = 200;
-			},
-			getContent: function(){
-				return this.data;
-			},
-			cabezal: function(){
-				return this.data.seccion;
-			},
-			getSeccion: function(nombre){
-				var content = {};
-				this.data.seccion.forEach(function(seccion){
-					if (seccion.nombre == nombre) {
-						content = seccion;
-						return content;
-					}
-				});
-				return content;
-			},
-			divisas: function(){
-				return this.data.divisas;
-			},
-			zoom: function(){
-				return this.data.zoom;
-			},
-			masleidas: function(){
-				return this.data.masleidas;
-			},
-			getNota: function(idnoticia) {
-				var content = {};
-				this.data.noticias.forEach(function(noticia){
-					if(noticia.id === idnoticia) {
-						content = noticia;
-						return content;
-					}
-				});
-				return content;
-			}
-		};
-});
+

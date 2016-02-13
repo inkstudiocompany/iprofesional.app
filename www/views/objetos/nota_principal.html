@@ -1,4 +1,5 @@
 <div class="lanota" ng-repeat="noticia in content.cabezal.notas | limitTo : 1">
+
   <div class="imagen">
     <a href="{{ noticia.app_url }}">
       <img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-show="noticia.adjuntos.imagen_principal != false">
