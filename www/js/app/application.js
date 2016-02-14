@@ -34,6 +34,8 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 					dataFactory.setSeccion(seccion, response);
 					defer.resolve(true);
 			}
+		}).fail(function(response){
+			alert(response);
 		});
 
         return promise;
