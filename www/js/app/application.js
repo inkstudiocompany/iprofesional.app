@@ -31,8 +31,10 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 			jsonpCallback: 'get',
 			crossDomain: true,
 			success: function(response) {
-					dataFactory.setSeccion(seccion, response);
-					defer.resolve(true);
+				if($('#splashloader').is(':visible') === true) $('#splashloader').hide();
+				if($('#loading').is(':visible') === false) $('#loading').show();
+				dataFactory.setSeccion(seccion, response);
+				defer.resolve(true);
 			}
 		}).fail(function(response){
 			alert(response);
@@ -100,6 +102,7 @@ iproapp.controller('seccionController',
 		$scope.load = function() {
 			$scope.content = dataFactory.getSeccion($routeParams.seccion);
 			$scope.zoom = dataFactory.zoom;
+			$scope.masleidas = dataFactory.masleidas;
 		}
 
 		if(dataFactory.status($routeParams.seccion) === 404) {
