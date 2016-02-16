@@ -1,5 +1,5 @@
 #loader{ position: fixed; z-index: 99999; top:0; width: 100vw; width: 100%; background: #21272e; }
-div#splashloader{ position: fixed; z-index: 99999; top:5px; width: 100vw; width: 100%; height: 100vh; height: 100%; background: #21272e; }
+div#splashloader{ position: fixed; z-index: 101; top:0px; width: 100vw; width: 100%; height: 100vh; height: 100%; background: #21272e; }
 div#loading{ position: fixed; z-index: 99999; top:5px; width: 100vw; width: 100%; height: 100vh; height: 100%; background: #FFFFFF; opacity: 0.9; }
 div#splashloader img{ width: 60%; width: 60vw; margin: 45% 20%; margin: 45vh 20vw; 
 	-webkit-transition: opacity 1s ease-out;
@@ -8,3 +8,12 @@ opacity: 0;}
 div#splashloader img.ready{ opacity: 1;}
 div#loading{ position: fixed; z-index: 99999; top:50px; width: 100vw; width: 100%; height: 100vh; height: 100%; background: #FFFFFF; opacity: 0.9; text-align: center;}
 div#loading img{ margin: 40% 20%; margin: 40vh auto; }
+
+
+.error-message{ position: fixed; width: 80%; height: auto; top: -50px; text-align: center; padding: 10px 10% 10px 10%; background: #ffffff; opacity: 0; -webkit-transition: all 0.5s ease-in-out;
+-moz-transition: all 0.5s ease-in-out;
+-ms-transition: all 0.5s ease-in-out;
+-o-transition: all 0.5s ease-in-out;
+transition: all 0.5s ease-in-out;}
+
+.error-message.in{ top: 50px !important; opacity: 0.8; }

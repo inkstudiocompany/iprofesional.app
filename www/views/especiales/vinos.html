@@ -3,7 +3,7 @@
 
   <div ng-repeat="noticia in fila.noticias" class="{{ noticia.class }}">
    	<div class="imagen">
-      <a href="{{ noticia.app_url }}">
+      <a href="{{ noticia.url }}">
         <img src="{{ noticia.imagen }}">
       </a>
     </div>
@@ -11,7 +11,7 @@
       <div class="volantavinos">Novedades</div>
       <div class="titulo">
         <h2>
-          <a href="{{ noticia.app_url }}">{{ noticia.titulo }}</a>
+          <a href="{{ noticia.url }}">{{ noticia.titulo }}</a>
         </h2>
       </div>
     </div>

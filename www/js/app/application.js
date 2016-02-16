@@ -1,6 +1,6 @@
-//'use strict';
+'use strict';
 
-var apisource = 'http://deviprofesional.com/api/v1/seccion/';
+var apisource = 'http://www.iprofesional.pre.grupovi-da.biz/api/v1/seccion/';
 var servicesource = 'http://deviprofesional.com/service/json/';
 var servicesource = 'http://www.inkstudio.esy.es/service/json/';
 var isApi = false;
@@ -20,24 +20,26 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 		var defer = $q.defer();
         var promise = defer.promise;
         var url = (isApi === true ) ? apisource + seccion : servicesource + seccion + '.json';
+        var dataType = (isApi === true ) ? 'json' : 'jsonp';
    		
-   		$('#splashloader img').addClass('ready');
-		$.support.cors = true;
+   		$.support.cors = true;
+
 		$.ajax({
-			async: false,
+			async: true,
 			method: 'GET',
 			url: url,
-			dataType: 'jsonp',
+			dataType: dataType,
 			jsonpCallback: 'get',
 			crossDomain: true,
 			success: function(response) {
-				if($('#splashloader').is(':visible') === true) $('#splashloader').hide();
-				if($('#loading').is(':visible') === false) $('#loading').show();
 				dataFactory.setSeccion(seccion, response);
 				defer.resolve(true);
-			}
+			},
+			timeout: 20000
 		}).fail(function(response){
-			alert(response);
+			errorMessage('Ocurrió un error al conectarse con el servidor.');
+		}).error(function(response){
+			//errorMessage('Ocurrió un error al conectarse con el servidor.');
 		});
 
         return promise;
@@ -51,6 +53,13 @@ iproapp.controller('appController',
      	$scope.$location = $location;
      	$scope.$routeParams = $routeParams;
      	$scope.start = true;
+
+     	$('#splashloader img').addClass('ready');
+
+     	setTimeout(function(){
+     		if($('#splashloader').is(':visible') === true) $('#splashloader').hide();
+			if($('#loading').is(':visible') === false) $('#loading').show();
+   		}, 3000);
 
      	$scope.$on('$routeChangeStart', function (event, next, current) {
 			$('#loader').html('').data('loadie-loaded', 0).loadie(0);
@@ -66,7 +75,12 @@ iproapp.controller('appController',
 		});
 
 		dataFactory.setScope($scope);
-		
+
+		$scope.reload = function() {
+			errorOut();
+			$route.reload();
+		}
+
 		$location.url('/');
 	}]
 );
@@ -223,7 +237,9 @@ iproapp.directive('rowcontainer',
 			}
 			element.html(response);
 			$compile(element.contents())(scope);
-			$('#loader').html('').data('loadie-loaded', 0).loadie(0);
+			//$('#loader').html('').data('loadie-loaded', 0).loadie(0);
+
+			$('#loader').loadie((parseInt($('#loader div').css('width')) + 10) / 100);
 			
 			if (scope.$parent.$last === true) {
              	slidersStart();
@@ -306,7 +322,19 @@ iproapp.directive('notaswide', function($compile, templateService){
 
 
 
-//'use strict';
+'use strict';
+
+var errorMessage = function(message) { 
+	if($('#splashloader').is(':visible') === true) $('#splashloader').hide();
+	if($('#loading').is(':visible') === true) $('#loading').hide();
+	$('.error-message p').html(message);
+	$('.error-message').addClass('in');
+}
+
+var errorOut = function() {
+	$('.error-message').removeClass('in');	
+}
+'use strict';
 
 var templates = {
 	'divisas': 'views/divisas.html',
@@ -317,6 +345,8 @@ var templates = {
 	'noticia_doble': 'views/objetos/noticia_doble.html',
 	'slider': 'views/objetos/slider.html'
 }
+'use strict';
+
 iproapp.factory('dataFactory', function($http){
 	return {
 		$scope: null,
@@ -341,20 +371,29 @@ iproapp.factory('dataFactory', function($http){
 				}
 				
 				$.each(content.content.filas, function(index, fila){
-					/* Notas dobles */
-					$.each(fila.notas_dobles, function(index, id) {
-						id = fila.notas_dobles[index].noticias;
-						if(content.noticias.hasOwnProperty('id'+id) === true) {
-							fila.notas_dobles[index].noticias = eval('content.noticias.id'+id);	
+					$.each(fila.notas_dobles, function(index, object) {
+						if (object.noticias instanceof Object === true) {
+							$.each(object.noticias, function(index, id) {
+							 	if (content.noticias.hasOwnProperty('id'+id) === true) {
+									object.noticias[index] = eval('content.noticias.id'+id);	
+								}
+							});
+						}
+
+						if (object.noticias instanceof Object === false) {
+							if (content.noticias.hasOwnProperty('id'+object.noticias) === true) {
+								fila.notas_dobles[index].noticias = eval('content.noticias.id'+object.noticias);	
+							}
 						}
 					});
+
 					/* Noticias */
 					$.each(fila.noticias, function(index, id) {
 						if(content.noticias.hasOwnProperty('id'+id) === true) {
 							fila.noticias[index] = eval('content.noticias.id'+id);	
 						}
 					});
-					content.content.filas[index] = fila;
+					//content.content.filas[index] = fila;
 				});
 
 				if (content.hasOwnProperty('masleidas') === true) {

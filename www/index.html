@@ -48,11 +48,17 @@
 
     <body ng-controller="appController">
         <div id="loader"></div>
-        <div class="wrapper" ng-view></div>
+        <div class="error-message" ng-click="reload()">
+            <p></p>
+            <small>Presiona para recargar</small>
+        </div>
+        <div class="wrapper" ng-view>
+            <div class="cabezalmenu" ng-include="'views/common/cabezal_menu.html'"></div>
+        </div>
 
         <div class="seccionespie" ng-include="'views/common/footer.html'"></div>
 
-        <div id="splashloader">{{  }}
+        <div id="splashloader">
             <img src="images/logoiprofesional.png" />
         </div>
         <div id="loading" style="display:none">
