@@ -60,7 +60,7 @@ iproapp.controller('appController',
      	setTimeout(function(){
      		if($('#splashloader').is(':visible') === true) $('#splashloader').hide();
 			if($('#loading').is(':visible') === false) $('#loading').show();
-   		}, 3000);
+   		}, 2000);
 
      	$scope.$on('$routeChangeStart', function (event, next, current) {
 			$('#loader').html('').data('loadie-loaded', 0).loadie(0);
