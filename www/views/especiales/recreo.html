@@ -8,7 +8,8 @@
           </a>
         </div>
         <div class="textos">
-          <div class="volantarecreo">{{ fila.noticias[index].seccion }}</div>
+          <div class="volantarecreo" ng-if="!fila.noticias[index].chapita">{{ fila.noticias[index].seccion }}</div>
+          <div class="volantarecreo" ng-if="fila.noticias[index].chapita">{{ fila.noticias[index].chapita }}</div>
           <div class="titulo">
             <h2>
               <a href="{{ fila.noticias[index].app_url }}">{{ fila.noticias[index].titulo }}</a></h2>
@@ -22,7 +23,8 @@
           </a>
         </div>
         <div class="textos">
-          <div class="volantarecreo">{{ fila.noticias[index+1].seccion }}</div>
+          <div class="volantarecreo" ng-if="!fila.noticias[index+1].chapita">{{ fila.noticias[index+1].seccion }}</div>
+          <div class="volantarecreo" ng-if="fila.noticias[index+1].chapita">{{ fila.noticias[index+1].chapita }}</div>
           <div class="titulo">
             <h2>
               <a href="{{ fila.noticias[index+1].app_url }}">{{ fila.noticias[index+1].titulo }}</a></h2>

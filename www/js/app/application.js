@@ -1,8 +1,9 @@
 'use strict';
 
 var apisource = 'http://www.iprofesional.pre.grupovi-da.biz/api/v1/seccion/';
-var servicesource = 'http://deviprofesional.com/service/json/';
-var servicesource = 'http://www.inkstudio.esy.es/service/json/';
+var apisource = 'http://deviprofesional.com/api/v1/seccion/';
+//var servicesource = 'http://www.inkstudio.esy.es/service/json/';
+var servicesource = 'http://dddddabc1507c97b5af7-182f88e8524f687757336127e6b49b07.r99.cf2.rackcdn.com/service/jsonp/';
 var isApi = false;
 
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
@@ -19,7 +20,7 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 	this.load = function(seccion) {
 		var defer = $q.defer();
         var promise = defer.promise;
-        var url = (isApi === true ) ? apisource + seccion : servicesource + seccion + '.json';
+        var url = (isApi === true ) ? apisource + seccion : servicesource + seccion + '.json?v='+Math.random();
         var dataType = (isApi === true ) ? 'json' : 'jsonp';
    		
    		$.support.cors = true;

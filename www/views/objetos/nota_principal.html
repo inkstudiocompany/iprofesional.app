@@ -7,11 +7,12 @@
     </a>
   </div>
   <div class="textos">
-    <div class="volanta">{{ noticia.seccion }}</div>
+    <div class="volanta" ng-if="!noticia.chapita">{{ noticia.seccion }}</div>
+    <div class="volanta" ng-if="noticia.chapita">{{ noticia.chapita }}</div>
     <div class="titulo">
       <h1>
-        <a href="{{ noticia.app_url }}" ng-show="noticia.titulo_home">{{ noticia.titulo_home }}</a>
-        <a href="{{ noticia.app_url }}" ng-hide="noticia.titulo_home">{{ noticia.titulo }}</a>
+        <a href="{{ noticia.app_url }}" ng-if="noticia.titulo_home">{{ noticia.titulo_home }}</a>
+        <a href="{{ noticia.app_url }}" ng-if="!noticia.titulo_home">{{ noticia.titulo }}</a>
       </h1>
     </div>
   </div>

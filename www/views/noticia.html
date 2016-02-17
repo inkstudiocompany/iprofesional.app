@@ -4,7 +4,8 @@
 
 <div class="desarrollonota" ng-show="noticia">
 	<div class="volantanota">
-		<div class="tema">{{ noticia.seccion }}</div>
+		<div class="tema" ng-if="!noticia.chapita">{{ noticia.seccion }}</div>
+        <div class="tema" ng-if="noticia.chapita">{{ noticia.chapita }}</div>
 		<div class="fecha">
 			<strong>{{ noticia.publicacion * 1000 | date : 'dd.MM.yyyy' }}</strong> 
 			{{ noticia.publicacion * 1000 | date : 'HH:mm' }}hs

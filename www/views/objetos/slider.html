@@ -12,10 +12,10 @@
 					<div class="volantagris">
                         {{ noticia.publicacion * 1000 | date : 'dd.MM.yyyy' }}
                     </div>
-					<div class="titulo">
+                    <div class="titulo">
                 		<h2>
-                			<a href="{{ noticia.app_url }}" ng-show="noticia.titulo_home">{{ noticia.titulo_home }}</a>
-        					<a href="{{ noticia.app_url }}" ng-hide="noticia.titulo_home">{{ noticia.titulo }}</a>
+                			<a href="{{ noticia.app_url }}" ng-if="noticia.titulo_home">{{ noticia.titulo_home }}</a>
+        					<a href="{{ noticia.app_url }}" ng-if="!noticia.titulo_home">{{ noticia.titulo }}</a>
             			</h2>
       				</div>
                 </div>

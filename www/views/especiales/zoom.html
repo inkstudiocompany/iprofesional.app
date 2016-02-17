@@ -5,8 +5,10 @@
     ng-show="zoom[index-1] || zoom[index]">
     <div class="textos" ng-show="zoom[index-1]">
       <div class="volanta">
-        <div class="tema"><span>{{ zoom[index-1].publicacion * 1000 | date : 'HH:mm' }}</span>
+        <div class="tema" ng-if="!zoom[index-1].chapita"><span>{{ zoom[index-1].publicacion * 1000 | date : 'HH:mm' }}</span>
         {{ zoom[index-1].seccion }}</div>
+        <div class="tema" ng-if="zoom[index-1].chapita"><span>{{ zoom[index-1].publicacion * 1000 | date : 'HH:mm' }}</span>
+        {{ zoom[index-1].chapita }}</div>
       </div>
       <div class="titulo">
         <h2>
@@ -18,8 +20,10 @@
     </div>                    
     <div class="textos" ng-show="zoom[index]">
       <div class="volanta">
-        <div class="tema"><span>{{ zoom[index].publicacion * 1000 | date : 'HH:mm' }}</span> 
+        <div class="tema" ng-if="!zoom[index].chapita"><span>{{ zoom[index].publicacion * 1000 | date : 'HH:mm' }}</span> 
         {{ zoom[index].seccion }}</div>
+        <div class="tema" ng-if="zoom[index].chapita"><span>{{ zoom[index].publicacion * 1000 | date : 'HH:mm' }}</span> 
+        {{ zoom[index].chapita }}</div>
       </div>
       <div class="titulo">
         <h2>
