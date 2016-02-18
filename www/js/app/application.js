@@ -1,7 +1,7 @@
 'use strict';
 
 var apisource = 'http://www.iprofesional.pre.grupovi-da.biz/api/v1/seccion/';
-var apisource = 'http://deviprofesional.com/api/v1/seccion/';
+//var apisource = 'http://deviprofesional.com/api/v1/seccion/';
 //var servicesource = 'http://www.inkstudio.esy.es/service/json/';
 var servicesource = 'http://dddddabc1507c97b5af7-182f88e8524f687757336127e6b49b07.r99.cf2.rackcdn.com/service/jsonp/';
 var isApi = false;
@@ -20,7 +20,8 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 	this.load = function(seccion) {
 		var defer = $q.defer();
         var promise = defer.promise;
-        var url = (isApi === true ) ? apisource + seccion : servicesource + seccion + '.json?v='+Math.random();
+        var url = (isApi === true ) ? apisource + seccion : servicesource + seccion + '.json';
+        url = url + '?v='+versionGenerator();
         var dataType = (isApi === true ) ? 'json' : 'jsonp';
    		
    		$.support.cors = true;
@@ -32,6 +33,7 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 			dataType: dataType,
 			jsonpCallback: 'get',
 			crossDomain: true,
+			cache: true,
 			success: function(response) {
 				dataFactory.setSeccion(seccion, response);
 				defer.resolve(true);
@@ -60,7 +62,7 @@ iproapp.controller('appController',
      	setTimeout(function(){
      		if($('#splashloader').is(':visible') === true) $('#splashloader').hide();
 			if($('#loading').is(':visible') === false) $('#loading').show();
-   		}, 2000);
+   		}, 1450);
 
      	$scope.$on('$routeChangeStart', function (event, next, current) {
 			$('#loader').html('').data('loadie-loaded', 0).loadie(0);
@@ -334,6 +336,26 @@ var errorMessage = function(message) {
 
 var errorOut = function() {
 	$('.error-message').removeClass('in');	
+}
+
+var versionGenerator = function () {
+	var date = new Date();
+	var month = date.getMonth() + 1;
+	var day = date.getDay();
+	var hour = date.getHours();
+	var minutes_d2 = parseInt(date.getMinutes().toString().substr(-1));
+	var minutes_d1 = date.getMinutes().toString().substr(0, 1);
+	var minutes  = '';
+	
+	if (minutes_d2 <= 5 && minutes_d2 !== 0) {
+		minutes = minutes_d1.toString().concat('0');
+	} else 
+
+	if ((minutes_d2 > 5 && minutes_d2 <= 9) || minutes_d2 === 0) {
+		minutes = minutes_d1.toString().concat('5');
+	}
+
+	return day.toString().concat(hour.toString()).concat(minutes);
 }
 'use strict';
 

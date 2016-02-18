@@ -441,7 +441,7 @@ h1, h2, h3{
 .notasrecomendadas .tira .textos .titulo h2 a{
 	width:100%;
 	color:#21272E;
-	font-size:11px;
+	font-size:13px;
 	font-weight:700;
 	line-height:15px;
 	display:block;
@@ -658,6 +658,7 @@ h1, h2, h3{
 .notasdobles .imagen img{
 	width:100%;
 	height:auto;
+	min-height: 125px;
 }
 .notasdobles .textos{
 	width:100%;
@@ -721,6 +722,11 @@ h1, h2, h3{
 	width:41% !important;
 	background-color:#e6e7e8;
 	float:left;
+	min-height: 260px;
+}
+.slider li{ min-height: 270px; }
+.slider img{
+	min-height: 109px !important; 
 }
 .slider .titulo{
 	display:table;
@@ -1038,6 +1044,11 @@ h1, h2, h3{
     -moz-border-radius-topright: 20px;
     border-top-right-radius: 20px;
 }
+.objetovertical .notasimplewide .textos .volantaautos,
+.objetovertical .notasimplewide .textos .volantarecreo,
+.objetovertical .notasimplewide .textos .volantavinos{
+	margin-top: 0px;
+}
 .objetovertical .textos .volantagris{
 	padding-left:10px;
 	padding-right:15px;
@@ -1296,7 +1307,6 @@ h1, h2, h3{
 	padding-left:5%;
 	padding-right:5%;
 	float:left;
-	margin-bottom:30px;
 }
 .seccionespie .colizq{
 	width:45%;
@@ -1329,13 +1339,7 @@ h1, h2, h3{
 .seccionespie ul .titlista{
 	background-image:none;
 }
-.redespie {
-	width:90%;
-	padding-left:5%;
-	padding-right:5%;
-	float:left;
-	margin-bottom:30px;
-}
+
 .redespie ul li{
 	float:left;
 	margin-right:5px;
@@ -1351,16 +1355,16 @@ h1, h2, h3{
 	display:block;
 }
 .redespie ul .fb{
-	background-position:left top;
+	background-position:left top; border: none;
 }
 .redespie ul .tw{
-	background-position:-24px top;
+	background-position:-24px top; border: none;
 }
 .redespie ul .gp{
-	background-position:-48px top;
+	background-position:-48px top; border: none;
 }
 .redespie ul .in{
-	background-position:-72px top;
+	background-position:-72px top; border: none;
 }
 .redesnota {
 	width:100%;
@@ -1400,9 +1404,8 @@ h1, h2, h3{
 	background-position:-120px top;
 }
 .legalespie {
-	width:90%;
-	padding-left:5%;
-	padding-right:5%;
+	width:100%;
+	padding: 0px;
 	float:left;
 	margin-bottom:30px;	
 	color:#7f8388;
@@ -1789,7 +1792,6 @@ h1, h2, h3{
 	padding-left:5%;
 	padding-right:5%;
 	float:left;
-	margin-bottom:30px;
 }
 .seccionespie .colizq{
 	width:45%;
@@ -1823,9 +1825,8 @@ h1, h2, h3{
 	background-image:none;
 }
 .redespie {
-	width:90%;
-	padding-left:5%;
-	padding-right:5%;
+	width: 100%;
+	padding: 5% 0;
 	float:left;
 	margin-bottom:30px;
 }
@@ -1844,7 +1845,7 @@ h1, h2, h3{
 	display:block;
 }
 .redespie ul .fb{
-	background-position:left top;
+	background-position:left top; 
 }
 .redespie ul .tw{
 	background-position:-24px top;
@@ -1875,36 +1876,24 @@ h1, h2, h3{
 	display:block;
 }
 .redesnota ul .fb{
-	background-position:left top;
+	background-position:left top; border: none !important;
 }
 .redesnota ul .tw{
-	background-position:-24px top;
+	background-position:-24px top; border: none !important;
 }
 .redesnota ul .gp{
-	background-position:-48px top;
+	background-position:-48px top; border: none !important;
 }
 .redesnota ul .in{
-	background-position:-72px top;
+	background-position:-72px top; border: none !important;
 }
 .redesnota ul .wa{
-	background-position:-96px top;
+	background-position:-96px top; border: none !important;
 }
 .redesnota ul .mail{
-	background-position:-120px top;
+	background-position:-120px top; border: none !important;
 }
-.legalespie {
-	width:90%;
-	padding-left:5%;
-	padding-right:5%;
-	float:left;
-	margin-bottom:30px;	
-	color:#7f8388;
-	font-size:11px;
-}
-.legalespie a{
-	display:inline;
-	color:#7f8388;
-}
+
 .titulomasleidas {
     width: 100%;
     font-size: 16px;
