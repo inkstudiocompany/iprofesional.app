@@ -50,15 +50,8 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*" subdomains="true"/>
-  <!-- <access origin="http://deviprofesional.com" subdomains="true"/>
-  <access origin="http://iprofesional.com" subdomains="true"/>
-  <access origin="http://www.inkstudio.esy.es" subdomains="true"/>
-  <access origin="http://www.inkstudio.esy.es/*" subdomains="true"/>
-  <access uri="*" subdomains="true" /> -->
+  
   <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
-  <access origin="dddddabc1507c97b5af7-182f88e8524f687757336127e6b49b07.r99.cf2.rackcdn.com" subdomains="true"/>
-  <access origin="fonts.googleapis.com" subdomains="true"/> 
-  <access origin="fonts.gstatic.com" subdomains="true"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

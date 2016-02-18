@@ -38,11 +38,12 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 			success: function(response) {
 				dataFactory.setSeccion(seccion, response);
 				defer.resolve(true);
-			},
-			timeout: 20000
+			}
 		}).fail(function(response){
+			alert(JSON.stringify(response));
 			errorMessage('Ocurrió un error al conectarse con el servidor.');
 		}).error(function(response){
+			alert(JSON.stringify(response));
 			//errorMessage('Ocurrió un error al conectarse con el servidor.');
 		});
 
