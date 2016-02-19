@@ -722,9 +722,9 @@ h1, h2, h3{
 	width:41% !important;
 	background-color:#e6e7e8;
 	float:left;
-	min-height: 260px;
+	min-height: 290px;
 }
-.slider li{ min-height: 270px; }
+.slider li{ min-height: 290px; }
 .slider img{
 	min-height: 109px !important; 
 }

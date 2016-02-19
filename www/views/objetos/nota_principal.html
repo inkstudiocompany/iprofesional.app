@@ -2,8 +2,8 @@
 
   <div class="imagen">
     <a href="{{ noticia.app_url }}">
-      <img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-show="noticia.adjuntos.imagen_principal != false">
-      <img src="{{ noticia.adjuntos.imagenes[0].path }}" ng-show="noticia.adjuntos.imagen_principal == false && noticia.adjuntos.imagenes != false">
+      <img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-if="noticia.adjuntos.imagen_principal != false">
+      <img src="{{ noticia.adjuntos.imagenes[0].path }}" ng-show="noticia.adjuntos.imagen_principal == false && noticia.adjuntos.imagenes[0]">
     </a>
   </div>
   <div class="textos">

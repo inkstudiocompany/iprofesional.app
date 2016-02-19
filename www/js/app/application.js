@@ -1,9 +1,5 @@
 'use strict';
 
-//var apisource = 'http://www.iprofesional.pre.grupovi-da.biz/api/v1/seccion/';
-//var apisource = 'http://deviprofesional.com/api/v1/seccion/';
-//var servicesource = 'http://www.inkstudio.esy.es/service/json/';
-//var servicesource = 'http://dddddabc1507c97b5af7-182f88e8524f687757336127e6b49b07.r99.cf2.rackcdn.com/service/jsonp/';
 var servicesource = 'http://www.iprofesional.com/service/jsonp/';
 var isApi = false;
 
@@ -324,9 +320,21 @@ iproapp.directive('notaswide', function($compile, templateService){
     };
 });
 
-
-
-
+iproapp.directive('youtube', function($sce) {
+	return {
+		restrict: 'EA',
+		scope: { code:'=', height: '=h' },
+		replace: true,
+		template: '<div style="height:{{ height }}px;"><iframe style="overflow:hidden;height:100%;width:100%" width="100%" height="100%" src="{{url}}" frameborder="0" allowfullscreen></iframe></div>',
+		link: function (scope) {
+		    scope.$watch('code', function (newVal) {
+		       if (newVal) {
+		           scope.url = $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + newVal + '?rel=0&amp;controls=0&amp;showinfo=0');
+		       }
+		    });
+		}
+	};
+});
 'use strict';
 
 var errorMessage = function(message) { 
@@ -368,7 +376,8 @@ var templates = {
 	'vinos': 'views/especiales/vinos.html',
 	'recreo': 'views/especiales/recreo.html',
 	'noticia_doble': 'views/objetos/noticia_doble.html',
-	'slider': 'views/objetos/slider.html'
+	'slider': 'views/objetos/slider.html',
+	'youtube': 'views/objetos/youtube.html'
 }
 'use strict';
 

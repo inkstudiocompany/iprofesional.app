@@ -22,8 +22,10 @@
         Por <strong>{{ noticia.autor }}</strong>
     </div>
     <div class="fotonota">
-    	<img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-show="noticia.adjuntos.imagen_principal != false">
-      <img src="{{ noticia.adjuntos.imagenes[0].path }}" ng-show="noticia.adjuntos.imagen_principal == false && noticia.adjuntos.imagenes != false">
+    	<img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-if="noticia.adjuntos.imagen_principal != false">
+      <img src="{{ noticia.adjuntos.imagenes[0].path }}" ng-if="noticia.adjuntos.imagen_principal == false && noticia.adjuntos.imagenes[0]">
+
+       <youtube ng-if="noticia.adjuntos.imagen_principal == false && !noticia.adjuntos.imagenes[0]" code="noticia.adjuntos.youtube" ng-show="noticia.adjuntos.youtube != false" h="200"></youtube>
 	</div>
     
     <div class="redesnota" ng-include="'views/common/redes-sociales.html'"></div>
