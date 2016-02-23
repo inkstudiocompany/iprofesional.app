@@ -29,7 +29,7 @@
 	</div>
     
     <div class="redesnota" ng-include="'views/common/redes-sociales.html'"></div>
-    <div class="textonota" ng-bind-html="noticia.descripcion"></div>
+    <div class="textonota" ng-bind-html="noticia.descripcion | cloud"></div>
     <div class="redesnota" ng-include="'views/common/redes-sociales.html'"></div>
 </div>
 <div class="ultimasnoticiaswide" ng-include="'views/common/masleidas.html'"></div>

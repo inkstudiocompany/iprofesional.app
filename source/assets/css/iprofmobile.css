@@ -506,7 +506,7 @@ h1, h2, h3{
 .notaprincipal .lanota .textos .titulo h1 a{
 	width:100%;
 	color:#FFFFFF;
-	font-size:18px;
+	font-size:20px;
 	line-height:25px;
 	display:block;
 }
@@ -709,9 +709,9 @@ h1, h2, h3{
 .notasdobles .textos .titulo h2 a{
 	width:100%;
 	color:#323a45;
-	font-size:13px;
+	font-size:14px;
 	font-weight:700;
-	line-height:17px;
+	line-height:16px;
 	display:block;
 	float:left;
 	letter-spacing:-0.5px;
@@ -791,9 +791,9 @@ h1, h2, h3{
 .notaswide .textos .titulo h2 a{
 	width:100%;
 	color:#323a45;
-	font-size:13px;
+	font-size:14px;
 	font-weight:600;
-	line-height:16px;
+	line-height:15px;
 	display:block;
 	float:left;
 	letter-spacing:-0.5px;
@@ -1251,22 +1251,12 @@ h1, h2, h3{
 	float:left;
 	text-align:right;
 }
-.desarrollonota .titulonota h2{
-	width:100%;
-	float:left;
-	color:#2c3239;
-	font-weight:bold;
-	font-size:23px;
-	line-height:29px;
-	letter-spacing:-1px;
-	margin-bottom:10px;	
-}
 .desarrollonota .bajadanota h3{
 	width: 100%;
     float: left;
     color: #2c3239;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 20px;
     letter-spacing: -0.35px;
     margin-bottom: 15px;
@@ -1285,9 +1275,10 @@ h1, h2, h3{
 	float:left;
 	margin-bottom:10px;
 	color:#000;
-	font-size: 13px;
+	font-size: 15px;
     line-height: 20px;
 }
+.desarrollonota .textonota img{ max-width: 100%;}
 .desarrollonota .textonota:first-letter{
 	color: #bfc1c3;
 	font-size:60px;
@@ -1741,7 +1732,7 @@ h1, h2, h3{
 	float:left;
 	color:#2c3239;
 	font-weight:bold;
-	font-size:23px;
+	font-size:25px;
 	line-height:29px;
 	letter-spacing:-1px;
 	margin-bottom:10px;	
@@ -1751,7 +1742,7 @@ h1, h2, h3{
     float: left;
     color: #2c3239;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 20px;
     letter-spacing: -0.35px;
     margin-bottom: 15px;
@@ -1770,9 +1761,10 @@ h1, h2, h3{
 	float:left;
 	margin-bottom:10px;
 	color:#000;
-	font-size: 13px;
+	font-size: 15px;
     line-height: 20px;
 }
+.desarrollonota .textonota img{ max-width: 100%;}
 .desarrollonota .textonota:first-letter{
 	color: #bfc1c3;
 	font-size:60px;
