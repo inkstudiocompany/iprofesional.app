@@ -32,6 +32,7 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 			jsonpCallback: 'get',
 			crossDomain: true,
 			cache: true,
+			contentType: 'application/json; charset=UTF-8',
 			success: function(response) {
 				dataFactory.setSeccion(seccion, response);
 				defer.resolve(true);
@@ -337,10 +338,12 @@ iproapp.directive('youtube', function($sce) {
 	};
 });
 
-iproapp.filter('cloud', function(){
+iproapp.filter('cloud', function($sce){
 	return function(input) {
         if (input) {
-            return input.replace(new RegExp('../adjuntos/', 'g'), 'http://719ec77057a57996613a-9a5081423686babcde0c8e2e3662dda4.r0.cf1.rackcdn.com/adjuntos/');    
+            var _html = input.replace(new RegExp('../adjuntos/', 'g'), 'http://719ec77057a57996613a-9a5081423686babcde0c8e2e3662dda4.r0.cf1.rackcdn.com/adjuntos/');
+            _html = $sce.trustAsHtml(_html);
+			return _html;
         }
     }
 });

@@ -1270,6 +1270,7 @@ h1, h2, h3{
 	width:100%;
 	height:auto;
 }
+.desarrollonota iframe{ width: 100% !important; min-height: 260px !important; height: auto; }
 .desarrollonota .textonota{
 	width:100%;
 	float:left;

@@ -1,5 +1,5 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.iprofesional.app" version="1.0.2">
-  <name>iprofesional</name>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.iprofesional.app" version="1.0.3">
+  <name>iProfesional</name>
   <description></description>
   <author href="http://www.inkstudio.com.co" email="inkstudiocompany@gmail.com">Ink Studio</author>
   <content src="index.html"/>
