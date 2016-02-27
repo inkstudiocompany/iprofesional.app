@@ -1,5 +1,5 @@
 'use strict';
-
+//var servicesource = 'http://www.iprofesional.pre.grupovi-da.biz/service/jsonp/';
 var servicesource = 'http://www.iprofesional.com/service/jsonp/';
 //var servicesource = 'http://192.168.0.13/iprofesional/service/jsonp/';
 var isApi = false;
@@ -347,6 +347,9 @@ iproapp.filter('cloud', function($sce){
         }
     }
 });
+
+
+
 'use strict';
 
 var errorMessage = function(message) { 

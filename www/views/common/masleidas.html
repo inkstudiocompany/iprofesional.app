@@ -1,5 +1,5 @@
 <div class="titobjeto">&Uacute;ltimas noticias</div>
-<div class="lanota" ng-repeat="noticia in masleidas | limitTo : 5">
+<div class="lanota" ng-repeat="noticia in masleidas | limitTo:5" ng-if="$index < 5">
   <div class="imagen">
     <a href="{{ noticia.app_url }}">
       <img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-if="noticia.adjuntos.imagen_principal">
