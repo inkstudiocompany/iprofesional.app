@@ -57,10 +57,6 @@ iproapp.controller('appController',
      	$scope.$routeParams = $routeParams;
      	$scope.start = true;
 
-     	if(window.MobileAccessibility){
-        	window.MobileAccessibility.usePreferredTextZoom(false);
-    	}
-
      	$('#splashloader img').addClass('ready');
 
      	setTimeout(function(){

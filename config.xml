@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.iprofesional.app" version="1.0.4">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.iprofesional.app" version="1.0.5">
   <name>iProfesional</name>
   <description></description>
   <author href="http://www.inkstudio.com.co" email="inkstudiocompany@gmail.com">Ink Studio</author>
@@ -22,8 +22,7 @@
   <preference name="android-installLocation" value="auto"/>
 
   <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" spec="4.3.8" src="pgb" />
-  <gap:plugin name="com.phonegap.plugin.mobile-accessibility" version="0.1.1" spec="0.1.1" src="pgb" />
-
+  
   <icon src="logotipo.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
