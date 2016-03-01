@@ -22,7 +22,7 @@
   <preference name="android-installLocation" value="auto"/>
 
   <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" spec="4.3.8" src="pgb" />
-  <gap:plugin name="com.phonegap.plugin.mobile-accessibility" spec="0.1.1" source="pgb" />
+  <gap:plugin name="com.phonegap.plugin.mobile-accessibility" version="0.1.1" spec="0.1.1" src="pgb" />
 
   <icon src="logotipo.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
