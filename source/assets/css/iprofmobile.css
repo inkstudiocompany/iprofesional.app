@@ -976,6 +976,7 @@ h1, h2, h3{
 .objetovertical .imagen img{
 	width:100%;
 	height:auto;
+	min-height: 130px;
 }
 .objetovertical .textos{
 	width:100%;
