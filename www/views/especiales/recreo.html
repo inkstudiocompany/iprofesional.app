@@ -1,33 +1,66 @@
 <div class="objetovertical objetorecreo">
   	<div class="cabezalrecreo"></div>
-    <div class="lineanotas" ng-repeat="index in [0, 2]">
+    <div class="lineanotas">
       <div class="notaizq">
         <div class="imagen">
-          <a href="{{ fila.noticias[index].app_url }}">
-            <img src="{{ fila.noticias[index].adjuntos.imagen_principal.path }}">
+          <a href="{{ fila.noticias[0].app_url }}">
+            <img src="{{ fila.noticias[0].adjuntos.imagen_principal.path }}">
           </a>
         </div>
         <div class="textos">
-          <div class="volantarecreo" ng-if="!fila.noticias[index].chapita">{{ fila.noticias[index].seccion }}</div>
-          <div class="volantarecreo" ng-if="fila.noticias[index].chapita">{{ fila.noticias[index].chapita }}</div>
+          <div class="volantarecreo" ng-if="!fila.noticias[0].chapita">{{ fila.noticias[0].seccion }}</div>
+          <div class="volantarecreo" ng-if="fila.noticias[0].chapita">{{ fila.noticias[0].chapita }}</div>
           <div class="titulo">
             <h2>
-              <a href="{{ fila.noticias[index].app_url }}">{{ fila.noticias[index].titulo }}</a></h2>
+              <a href="{{ fila.noticias[0].app_url }}">{{ fila.noticias[0].titulo }}</a></h2>
           </div>
         </div>
       </div>
       <div class="notader">
         <div class="imagen">
-          <a href="{{ fila.noticias[index+1].app_url }}">
-            <img src="{{ fila.noticias[index+1].adjuntos.imagen_principal.path }}">
+          <a href="{{ fila.noticias[4].app_url }}">
+            <img src="{{ fila.noticias[4].adjuntos.imagen_principal.path }}">
           </a>
         </div>
         <div class="textos">
-          <div class="volantarecreo" ng-if="!fila.noticias[index+1].chapita">{{ fila.noticias[index+1].seccion }}</div>
-          <div class="volantarecreo" ng-if="fila.noticias[index+1].chapita">{{ fila.noticias[index+1].chapita }}</div>
+          <div class="volantarecreo" ng-if="!fila.noticias[4].chapita">{{ fila.noticias[4].seccion }}</div>
+          <div class="volantarecreo" ng-if="fila.noticias[4].chapita">{{ fila.noticias[4].chapita }}</div>
           <div class="titulo">
             <h2>
-              <a href="{{ fila.noticias[index+1].app_url }}">{{ fila.noticias[index+1].titulo }}</a></h2>
+              <a href="{{ fila.noticias[4].app_url }}">{{ fila.noticias[4].titulo }}</a></h2>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="lineanotas">
+      <div class="notaizq">
+        <div class="imagen">
+          <a href="{{ fila.noticias[1].app_url }}">
+            <img src="{{ fila.noticias[1].adjuntos.imagen_principal.path }}">
+          </a>
+        </div>
+        <div class="textos">
+          <div class="volantarecreo" ng-if="!fila.noticias[1].chapita">{{ fila.noticias[1].seccion }}</div>
+          <div class="volantarecreo" ng-if="fila.noticias[1].chapita">{{ fila.noticias[1].chapita }}</div>
+          <div class="titulo">
+            <h2>
+              <a href="{{ fila.noticias[1].app_url }}">{{ fila.noticias[1].titulo }}</a></h2>
+          </div>
+        </div>
+      </div>
+      <div class="notader">
+        <div class="imagen">
+          <a href="{{ fila.noticias[2].app_url }}">
+            <img src="{{ fila.noticias[2].adjuntos.imagen_principal.path }}">
+          </a>
+        </div>
+        <div class="textos">
+          <div class="volantarecreo" ng-if="!fila.noticias[2].chapita">{{ fila.noticias[2].seccion }}</div>
+          <div class="volantarecreo" ng-if="fila.noticias[2].chapita">{{ fila.noticias[2].chapita }}</div>
+          <div class="titulo">
+            <h2>
+              <a href="{{ fila.noticias[2].app_url }}">{{ fila.noticias[2].titulo }}</a></h2>
           </div>
         </div>
       </div>
