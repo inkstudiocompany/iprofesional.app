@@ -1,10 +1,10 @@
 'use strict';
 //var servicesource = 'http://www.iprofesional.pre.grupovi-da.biz/service/jsonp/';
 var servicesource = 'http://www.iprofesional.com/service/jsonp/';
-var servicesource = 'http://192.168.0.13/iprofesional/service/jsonp/';
+//var servicesource = 'http://192.168.0.13/iprofesional/service/jsonp/';
 var isApi = false;
 
-var app_version = '1.0.6';
+var app_version = '1.0.7';
 
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
@@ -36,9 +36,12 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q', '$location',
 			cache: true,
 			contentType: 'application/json; charset=UTF-8',
 			success: function(response) {
-				if (app_version !== response.app_version) {
-					$location.url('/update');
+				if (response.app_version) {
+					if (app_version !== response.app_version) {
+						$location.url('/update');
+					}	
 				}
+				
 				dataFactory.setSeccion(seccion, response);
 				defer.resolve(true);
 			}
@@ -123,10 +126,10 @@ iproapp.controller('seccionController',
 		$scope.content = false;
 
 		$scope.load = function() {
-			$scope.content = dataFactory.getSeccion($routeParams.seccion);
-			$scope.zoom = dataFactory.zoom;
-			$scope.masleidas = dataFactory.masleidas;
-			$scope.indice = dataFactory.indice;
+			$scope.content 		= dataFactory.getSeccion($routeParams.seccion);
+			$scope.zoom 		= dataFactory.zoom;
+			$scope.masleidas 	= dataFactory.masleidas;
+			$scope.indice 		= dataFactory.indice;
 		}
 
 		if(dataFactory.status($routeParams.seccion) === 404) {
@@ -250,9 +253,10 @@ iproapp.directive('rowcontainer',
 
 	var linker = function(scope, element, attrs) {
 		templateService.get(getTemplate(scope)).then(function(response){
-			if(7 === scope.row) {
+			if(7 === parseInt(scope.row)) {
 				scope.zoom = dataFactory.zoom;
 			}
+			
 			if('recreo' === scope.fila.type) {
 				scope.masleidas = dataFactory.masleidas;
 			}
