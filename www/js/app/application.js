@@ -1,8 +1,10 @@
 'use strict';
 //var servicesource = 'http://www.iprofesional.pre.grupovi-da.biz/service/jsonp/';
 var servicesource = 'http://www.iprofesional.com/service/jsonp/';
-//var servicesource = 'http://192.168.0.13/iprofesional/service/jsonp/';
+var servicesource = 'http://192.168.0.13/iprofesional/service/jsonp/';
 var isApi = false;
+
+var app_version = '1.0.6';
 
 var iproapp = angular.module('iprofesional', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
@@ -12,8 +14,8 @@ iproapp.config(['$httpProvider', function($httpProvider) {
 	}
 ]);
 
-iproapp.service('dataService', ['$http', 'dataFactory', '$q',
-	function($http, dataFactory, $q){
+iproapp.service('dataService', ['$http', 'dataFactory', '$q', '$location',
+	function($http, dataFactory, $q, $location){
 
 	this.load = function(seccion) {
 		var defer = $q.defer();
@@ -34,6 +36,9 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 			cache: true,
 			contentType: 'application/json; charset=UTF-8',
 			success: function(response) {
+				if (app_version !== response.app_version) {
+					$location.url('/update');
+				}
 				dataFactory.setSeccion(seccion, response);
 				defer.resolve(true);
 			}
@@ -52,16 +57,16 @@ iproapp.service('dataService', ['$http', 'dataFactory', '$q',
 iproapp.controller('appController', 
 	['$scope', '$rootScope', '$route', '$routeParams', '$location', 'dataFactory',
 	function($scope, $rootScope, $route, $routeParams, $location, dataFactory){
-		$scope.$route = $route;
-     	$scope.$location = $location;
+		$scope.$route 		= $route;
+     	$scope.$location 	= $location;
      	$scope.$routeParams = $routeParams;
-     	$scope.start = true;
+     	$scope.start 		= true;
 
      	$('#splashloader img').addClass('ready');
 
      	setTimeout(function(){
-     		if($('#splashloader').is(':visible') === true) $('#splashloader').hide();
-			if($('#loading').is(':visible') === false) $('#loading').show();
+     		if($('#splashloader').is(':visible') === true)	$('#splashloader').hide();
+			if($('#loading').is(':visible') === false) 		$('#loading').show();
    		}, 1450);
 
      	$scope.$on('$routeChangeStart', function (event, next, current) {
@@ -89,15 +94,16 @@ iproapp.controller('appController',
 );
 
 iproapp.controller('homeController', 
-	['$scope', 'templateService', 'dataFactory', 'dataService',
+	['$scope', 'templateService', 'dataFactory', 'dataService', 
 	function($scope, templateService, dataFactory, dataService){
 		$scope.content = false;
 
 		$scope.load = function() {
-			$scope.content = dataFactory.getSeccion('home');
-			$scope.divisas = dataFactory.divisas;
-			$scope.zoom = dataFactory.zoom;
-			$scope.masleidas = dataFactory.masleidas;
+			$scope.content 		= dataFactory.getSeccion('home');
+			$scope.divisas 		= dataFactory.divisas;
+			$scope.zoom 		= dataFactory.zoom;
+			$scope.indice 		= dataFactory.indice;
+			$scope.masleidas	= dataFactory.masleidas;
 		}
 
 		if(dataFactory.status('home') === 404) {
@@ -120,6 +126,7 @@ iproapp.controller('seccionController',
 			$scope.content = dataFactory.getSeccion($routeParams.seccion);
 			$scope.zoom = dataFactory.zoom;
 			$scope.masleidas = dataFactory.masleidas;
+			$scope.indice = dataFactory.indice;
 		}
 
 		if(dataFactory.status($routeParams.seccion) === 404) {
@@ -133,12 +140,20 @@ iproapp.controller('seccionController',
 	}]
 );
 
+iproapp.controller('updateController', 
+	['$scope', 'templateService', 'dataFactory', 'dataService', '$routeParams',
+	function($scope, templateService, dataFactory, dataService, $routeParams){
+		
+	}]
+);
+
 iproapp.controller('newsController', 
 	['$scope', 'templateService', '$routeParams', '$route', '$location', 'dataFactory',
 	function($scope, templateService, $routeParams, $route, $location, dataFactory){
 		$scope.noticia = false;
 		$scope.noticia = dataFactory.getNota($routeParams.notaId);
 		$scope.masleidas = dataFactory.masleidas;
+		$scope.indice = dataFactory.indice;
 		
 		setTimeout(function(){
      		$('#loader').loadie(1);
@@ -235,8 +250,11 @@ iproapp.directive('rowcontainer',
 
 	var linker = function(scope, element, attrs) {
 		templateService.get(getTemplate(scope)).then(function(response){
-			if(scope.row == 7) {
+			if(7 === scope.row) {
 				scope.zoom = dataFactory.zoom;
+			}
+			if('recreo' === scope.fila.type) {
+				scope.masleidas = dataFactory.masleidas;
 			}
 			element.html(response);
 			$compile(element.contents())(scope);
@@ -278,10 +296,12 @@ iproapp.directive('objeto',
 	function($compile, templateService, dataFactory){
 	
 	var getTemplate = function(scope) {
-		if(scope.objeto.tipo === 'nota')
+		if('nota' === scope.objeto.tipo)
 			return templates.noticia_doble;
-		if(scope.objeto.tipo === 'slider')
+		if('slider' === scope.objeto.tipo)
 			return templates.slider;
+		if('principal' === scope.objeto.tipo)
+			return templates.principal;
 	}
 
 	var linker = function(scope, element, attrs) {
@@ -385,19 +405,21 @@ var versionGenerator = function () {
 'use strict';
 
 var templates = {
-	'divisas': 'views/divisas.html',
-	'fila': 'views/fila.html',
-	'autos': 'views/especiales/autos.html',
-	'vinos': 'views/especiales/vinos.html',
-	'recreo': 'views/especiales/recreo.html',
-	'noticia_doble': 'views/objetos/noticia_doble.html',
-	'slider': 'views/objetos/slider.html',
-	'youtube': 'views/objetos/youtube.html'
+	'divisas'		: 'views/divisas.html',
+	'fila'			: 'views/fila.html',
+	'autos'			: 'views/especiales/autos.html',
+	'vinos'			: 'views/especiales/vinos.html',
+	'recreo'		: 'views/especiales/recreo.html',
+	'principal'		: 'views/objetos/objeto_noticia_full.html',
+	'noticia_doble'	: 'views/objetos/noticia_doble.html',
+	'slider'		: 'views/objetos/slider.html',
+	'youtube'		: 'views/objetos/youtube.html'
 }
 'use strict';
 
 iproapp.factory('dataFactory', function($http){
 	return {
+		version: 0,
 		$scope: null,
 		loaded: [
 		],
@@ -406,11 +428,16 @@ iproapp.factory('dataFactory', function($http){
 		divisas: {},
 		masleidas: {},
 		zoom: {},
+		indice: {},
 		status: function(seccion){
 			var status = (this.loaded.indexOf(seccion) === -1) ? 404 : 200;
 			return status;
 		},
 		setSeccion: function(seccion, content) {
+			if (content.app_version) {
+				this.version = content.app_version;
+			}
+
 			if (this.status(seccion) === 404) {
 				if (content.content.hasOwnProperty('cabezal') === true) {
 					 
@@ -420,6 +447,24 @@ iproapp.factory('dataFactory', function($http){
 				}
 				
 				$.each(content.content.filas, function(index, fila){
+					if (fila.notas_principales) {
+						$.each(fila.notas_principales, function(index, object) {
+							if (object.noticias instanceof Object === true) {
+								$.each(object.noticias, function(index, id) {
+								 	if (content.noticias.hasOwnProperty('id'+id) === true) {
+										object.noticias[index] = eval('content.noticias.id'+id);	
+									}
+								});
+							}
+
+							if (object.noticias instanceof Object === false) {
+								if (content.noticias.hasOwnProperty('id'+object.noticias) === true) {
+									fila.notas_principales[index].noticias = eval('content.noticias.id'+object.noticias);	
+								}
+							}
+						});
+					}
+
 					$.each(fila.notas_dobles, function(index, object) {
 						if (object.noticias instanceof Object === true) {
 							$.each(object.noticias, function(index, id) {
@@ -452,6 +497,15 @@ iproapp.factory('dataFactory', function($http){
 						}
 					});
 					this.masleidas = content.masleidas;
+				}
+
+				if (content.hasOwnProperty('indice') === true) {
+					$.each(content.indice, function(index, id){
+						if(content.noticias.hasOwnProperty('id'+id) === true) {
+							content.indice[index] = eval('content.noticias.id'+id);	
+						}
+					});
+					this.indice = content.indice;
 				}
 
 				if (content.hasOwnProperty('zoom') === true) {
@@ -515,6 +569,10 @@ iproapp.config(['$routeProvider', '$locationProvider',
       when('/nota/:notaId/:titulo', {
         templateUrl: 'views/noticia.html',
         controller: 'newsController'
+      }).
+      when('/update', {
+        templateUrl: 'views/update.html',
+        controller: 'updateController'
       }).
       otherwise({
         redirectTo: '/'

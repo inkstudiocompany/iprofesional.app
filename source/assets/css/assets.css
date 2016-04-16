@@ -17,3 +17,45 @@ div#loading img{ margin: 40% 20%; margin: 40vh auto; }
 transition: all 0.5s ease-in-out;}
 
 .error-message.in{ top: 50px !important; opacity: 0.8; }
+
+
+/** Update **/
+.update_app{ 
+	position: fixed; z-index: 99;
+	height: 100%;
+	height: 100vh;
+	width: 100%;
+	width: 100vw;
+	background-color: #21272e;
+}
+
+.update_app img{
+	position: relative;
+	margin: 30vh auto 0 auto;
+	display: block;
+	width: 60%;
+}
+
+.update_app h2{ 
+	color: #ffffff; 
+	margin: 5vh 10% 0 10%; 
+	font-size: 16px; 
+	text-align: center; 
+	font-family: "Open Sans", Verdana, Helvetica, Arial, sans-serif; 
+}
+
+.update_app a {
+	position: relative;
+	width: 100px;
+	margin: 60px auto !important;
+	display: block; 
+	padding: 18px 30px; 
+	border: none;
+	background-color: #f39c12; 
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #2c3e50;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+/** Update **/

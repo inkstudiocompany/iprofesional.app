@@ -4,4 +4,11 @@
 
 <div class="divisas" ng-include="'views/divisas.html'" ng-show="content"></div>
 
+<div class="notafull" ng-include="'views/objetos/noticia_full.html'" ng-if="content.cabezal.notas[2]" ng-init="noticia = content.cabezal.notas[2]"></div>
+
+<div class="notaswide" ng-if="content.cabezal.notas[3]">
+	<div ng-repeat="noticia in content.cabezal.notas" ng-if="3 <= $index" 
+		ng-include="'views/objetos/noticia_simple.html'"></div>
+</div>
+
 <rowcontainer ng-repeat="(key, item) in content.filas" info="item" row="key" ng-show="content"></rowcontainer>
