@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app='iprofesional'>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="-1" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+
+        <title>iProfesional M&oacute;vil</title>
+
+        <script type="text/javascript" src="js/jquery.1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="js/jquery.cbpFWSlider.min.js"></script>
+        <script type="text/javascript" src="js/swiper.min.js"></script>
+        
+        <script src='js/angular.min.js'></script>
+        <script src='js/angular-route.js'></script>
+        <script src='js/angular-animate.js'></script>
+        <script src="js/angular-sanitize.min.js"></script>
+
+        <script src='js/app/application.js'></script>
+
+        <link href="fonts/OpenSansCondensed.css" rel="stylesheet"/> 
+        <link href="fonts/DroidSans.css" rel="stylesheet"/> 
+        <link href="fonts/DroidSerif.css" rel="stylesheet"/> 
+        <link href="css/iprofesional.css?v=3" rel="stylesheet"/> 
+
+        <script src="js/jquery.loadie.js"></script>
+        <link rel="stylesheet" href="css/loadie.css">
+        <link rel="stylesheet" href="css/swiper.min.css">
+
+        <script>
+            function onDeviceReady() {
+                angular.bootstrap(document, ['iprofesional']);
+            }
+            
+            function slidersStart() {
+                setTimeout(function(){
+                    $('#cbp-fwslider, #cbp-fwslider-der').cbpFWSlider();    
+                    setInterval( function(){
+                        if($('.cbp-fwnext').is(":visible")){
+                            $('.cbp-fwnext').click();
+                        }               
+                        else{
+                            $('.cbp-fwdots').find('span').click();
+                        }
+                    } ,6000);
+                }, 3000);
+            }
+        </script>
+
+        <script type="text/javascript">
+        function getDocHeight(doc) {
+            doc = doc || document;
+            var body = doc.body, html = doc.documentElement;
+            var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                html.clientHeight, html.scrollHeight, html.offsetHeight );
+            return height;
+        }
+
+        function setIframeHeight(id) {
+            var ifrm = document.getElementById(id);
+            var doc = ifrm.contentDocument? ifrm.contentDocument: 
+                ifrm.contentWindow.document;
+            ifrm.style.visibility = 'hidden';
+            ifrm.style.height = "10px"; // reset to minimal height ...
+            // IE opt. for bing/msn needs a bit added or scrollbar appears
+            ifrm.style.height = getDocHeight( doc ) + 4 + "px";
+            ifrm.style.visibility = 'visible';
+
+             ifrm.contentDocument.body.setAttribute('style', 'margin: 0 auto; text-align: center;');
+        }
+        </script>
+    </head>
+
+    <body ng-controller="appController">
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=1687676224803451";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div id="loader"></div>
+        <div class="error-message" ng-click="reload()">
+            <p></p>
+            <small>Presiona para recargar</small>
+        </div>
+        <div class="wrapper" ng-view>
+            <div class="cabezalmenu" ng-include="'views/common/cabezal_menu.html'"></div>
+        </div>
+
+        <div class="seccionespie" ng-include="'views/common/footer.html'"></div>
+
+        <div id="splashloader">
+            <img src="images/logoiprofesional.png" />
+        </div>
+        <div id="loading" style="display:none">
+            <img src="images/loader.gif" />
+        </div>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/iprofesionalmobile.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
