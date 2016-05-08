@@ -21,17 +21,6 @@
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
 
-  <preference name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <preference name="android.permission.ACCESS_NETWORK_STATE"/>
-  <preference name="android.permission.ACCESS_WIFI_STATE"/>
-  <preference name="android.permission.INTERNET"/>
-  <preference name="android.permission.ACCESS_FINE_LOCATION"/>
-  <preference name="android.permission.ACCESS_COARSE_LOCATION"/>
-  <preference name="android.permission.READ_PHONE_STATE"/>
-
-  <preference name="com.appnexus.opensdk.AdActivity"/>
-  <preference name="com.appnexus.opensdk.BrowserActivity"/>
-
   <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" spec="4.3.8" src="pgb" />
   
   <icon src="logotipo.png"/>
