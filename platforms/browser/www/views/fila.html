@@ -1,0 +1,10 @@
+<objeto ng-repeat="objeto in fila.notas_principales" info="objeto"></objeto>
+
+<div class="notasdobles">
+    <objeto ng-repeat="objeto in fila.notas_dobles" info="objeto"></objeto>
+</div>
+<div class="notaswide">
+	<div ng-repeat="noticia in fila.noticias" ng-include="'views/objetos/noticia_simple.html'"></div>
+</div>
+
+<div class="objetozoomhome swiper-container" ng-show="row == 7" ng-include="'views/especiales/zoom.html'"></div>

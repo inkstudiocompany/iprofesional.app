@@ -1,0 +1,25 @@
+<div class="{{ objeto.class }} slider" id="{{ objeto.id }}">
+    <div id="cbp-fwslider" class="cbp-fwslider" >
+        <ul>
+            <li ng-repeat="noticia in objeto.noticias">
+                <div class="imagen">
+                    <a href="{{ noticia.app_url }}">
+                        <img src="{{ noticia.adjuntos.imagen_principal.path }}" ng-if="noticia.adjuntos.imagen_principal != false">
+      <img src="{{ noticia.adjuntos.imagenes[0].path }}" ng-if="noticia.adjuntos.imagen_principal == false && noticia.adjuntos.imagenes != false">
+					</a>
+				</div>
+				<div class="textos">
+					<div class="volantagris">
+                        {{ noticia.publicacion * 1000 | date : 'dd.MM.yyyy' }}
+                    </div>
+                    <div class="titulo">
+                		<h2>
+                			<a href="{{ noticia.app_url }}" ng-if="noticia.titulo_home">{{ noticia.titulo_home }}</a>
+        					<a href="{{ noticia.app_url }}" ng-if="!noticia.titulo_home">{{ noticia.titulo }}</a>
+            			</h2>
+      				</div>
+                </div>
+    		</li>
+		</ul>
+	</div>
+</div>
