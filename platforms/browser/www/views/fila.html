@@ -3,6 +3,9 @@
 <div class="notasdobles">
     <objeto ng-repeat="objeto in fila.notas_dobles" info="objeto"></objeto>
 </div>
+
+<iframe id="banner02" class="bannerwide" src="views/banners/home/banner_02.html" onload="setIframeHeight(this.id)"></iframe>
+
 <div class="notaswide">
 	<div ng-repeat="noticia in fila.noticias" ng-include="'views/objetos/noticia_simple.html'"></div>
 </div>
