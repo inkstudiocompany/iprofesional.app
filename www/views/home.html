@@ -4,7 +4,7 @@
 
 <div class="divisas" ng-include="'views/divisas.html'" ng-show="content"></div>
 
-<iframe id="banner01" class="bannerwide" src="views/banners/home/banner_01.html" onload="setIframeHeight(this.id)"></iframe>
+<div class="bannerwide" ng-include="'views/banners/home/banner_01.html'"></div>
 
 <div class="notaswide" ng-if="content.cabezal.notas[2]">
 	<div ng-repeat="noticia in content.cabezal.notas" ng-if="2 <= $index" 
