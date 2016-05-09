@@ -248,7 +248,7 @@ iproapp.directive('rowcontainer',
 		if(scope.fila.type === 'recreo')
 			return templates.recreo;
 		if(scope.fila.type === 'empty')
-			return templates.fila;
+			return templates.banner;
 	}
 
 	var linker = function(scope, element, attrs) {
@@ -286,11 +286,12 @@ iproapp.directive('rowcontainer',
 	}
 
 	return {
-        restrict: 'E',
-        link: linker,
-        scope: {
-            fila: '=info',
-            row: '=row'
+        restrict 	: 'E',
+        link 		: linker,
+        scope 		: {
+            fila	 : '=info',
+            row 	 : '=row',
+            template : '=template'
         }
     };
 }]);
@@ -372,6 +373,31 @@ iproapp.filter('cloud', function($sce){
     }
 });
 
+iproapp.filter('banner_text', function($sce){
+	return function(input) {
+		var textBanner = 'aqui vamos';
+
+        if (input) {
+        	var pattern	= (input.indexOf('<br />')) ? '<br />' : '<p>';
+        	if (!input.indexOf(textBanner)) {
+        		var input_array	= input.split(pattern);
+        		var middle		= Math.floor(input_array.length / 2);
+
+        		var _html 		= '';
+        		for(i = 0; i < input_array.length; i++) {
+        			_html = _html + '<p>' + input_array[i];
+        			if (middle === i) {
+        				_html = _html + textBanner;
+        			}
+        		}
+        		
+        	}
+            _html = $sce.trustAsHtml(_html);
+			return _html;
+        }
+    }
+});
+
 
 
 'use strict';
@@ -417,7 +443,8 @@ var templates = {
 	'principal'		: 'views/objetos/objeto_noticia_full.html',
 	'noticia_doble'	: 'views/objetos/noticia_doble.html',
 	'slider'		: 'views/objetos/slider.html',
-	'youtube'		: 'views/objetos/youtube.html'
+	'youtube'		: 'views/objetos/youtube.html',
+	'banner'		: 'views/banner.html'
 }
 'use strict';
 

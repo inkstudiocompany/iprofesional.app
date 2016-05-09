@@ -7,6 +7,8 @@
 
 <div class="notasrecomendadas" id="notasrecomendadas" ng-include="'views/common/recomendadas.html'"></div>
 
-<rowcontainer ng-repeat="(key, item) in content.filas" info="item" row="key" ng-show="content"></rowcontainer>
+<rowcontainer ng-repeat="(key, item) in content.filas" info="item" template="'seccion'" row="key" ng-show="content"></rowcontainer>
+
+<iframe id="banner03" class="bannerwide" src="views/banners/seccion/banner_03.html" onload="setIframeHeight(this.id)" ></iframe>
 
 <div class="objetozoomhome swiper-container" ng-include="'views/especiales/zoom.html'" ng-show="content"></div>

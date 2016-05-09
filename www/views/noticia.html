@@ -1,6 +1,8 @@
 <div class="cabezalmenu" ng-include="'views/common/cabezal_menu.html'"></div>
 
-<div class="bannerwidetop"></div>
+<div class="bannerwidetop">
+  <iframe id="banner01" src="views/banners/nota/banner_01.html" onload="setIframeHeight(this.id)"></iframe>
+</div>
 
 <div class="desarrollonota" ng-show="noticia">
 	<div class="volantanota">
@@ -32,11 +34,12 @@
     <div class="textonota" ng-bind-html="noticia.descripcion | cloud"></div>
     <div class="redesnota" ng-include="'views/common/redes-sociales.html'"></div>
 </div>
+<div class="bannerwide">
+  <iframe id="banner02" src="views/banners/nota/banner_02.html" onload="setIframeHeight(this.id)"></iframe>
+</div>
+
 <div class="ultimasnoticiaswide" ng-include="'views/common/masleidas.html'"></div>
 
-<!-- <div class="comentarnota">
-    <div class="titobjeto">Comentar esta nota</div>
-    <div class="loscomentarios">
-        <div class="fb-comments" data-href="{{ noticia.url }}" data-width="100%" data-numposts="2"></div>
-     </div>
-  </div> -->
+<div class="bannerwide">
+  <iframe id="banner03" src="views/banners/nota/banner_03.html" onload="setIframeHeight(this.id)"></iframe>
+</div>

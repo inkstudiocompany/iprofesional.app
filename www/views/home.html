@@ -11,4 +11,4 @@
 		ng-include="'views/objetos/noticia_simple.html'"></div>
 </div>
 
-<rowcontainer ng-repeat="(key, item) in content.filas" info="item" row="key" ng-show="content"></rowcontainer>
+<rowcontainer ng-repeat="(key, item) in content.filas" info="item" row="key" template="'home'" ng-show="content"></rowcontainer>

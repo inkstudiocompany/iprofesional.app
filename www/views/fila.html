@@ -1,10 +1,14 @@
 <objeto ng-repeat="objeto in fila.notas_principales" info="objeto"></objeto>
 
+<iframe id="banner02" class="bannerwide" src="views/banners/seccion/banner_02.html" onload="setIframeHeight(this.id)" ng-if="row == 1 && 'seccion' == template"></iframe>
+
 <div class="notasdobles">
     <objeto ng-repeat="objeto in fila.notas_dobles" info="objeto"></objeto>
 </div>
 
-<iframe id="banner02" class="bannerwide" src="views/banners/home/banner_02.html" onload="setIframeHeight(this.id)"></iframe>
+<iframe id="banner02" class="bannerwide" src="views/banners/home/banner_02.html" onload="setIframeHeight(this.id)" ng-if="row == 1 && 'home' == template"></iframe>
+
+<iframe id="banner01" class="bannerwide" src="views/banners/seccion/banner_01.html" onload="setIframeHeight(this.id)" ng-if="row == 0 && 'seccion' == template"></iframe>
 
 <div class="notaswide">
 	<div ng-repeat="noticia in fila.noticias" ng-include="'views/objetos/noticia_simple.html'"></div>
