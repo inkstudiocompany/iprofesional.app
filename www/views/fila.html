@@ -1,0 +1,20 @@
+<objeto ng-repeat="objeto in fila.notas_principales" info="objeto"></objeto>
+
+<div class="bannerwide" ng-include="'views/banners/seccion/banner_02.html'"
+	ng-if="row == 1 && 'seccion' == template"></div>
+
+<div class="notasdobles">
+    <objeto ng-repeat="objeto in fila.notas_dobles" info="objeto"></objeto>
+</div>
+
+<div class="bannerwide" ng-include="'views/banners/home/banner_02.html'"
+	ng-if="row == 1 && 'home' == template"></div>
+
+<div class="bannerwide" ng-include="'views/banners/seccion/banner_01.html'"
+	ng-if="row == 0 && 'seccion' == template"></div>
+
+<div class="notaswide">
+	<div ng-repeat="noticia in fila.noticias" ng-include="'views/objetos/noticia_simple.html'"></div>
+</div>
+
+<div class="objetozoomhome swiper-container" ng-show="row == 7" ng-include="'views/especiales/zoom.html'"></div>

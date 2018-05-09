@@ -1,0 +1,55 @@
+  <div class="accesos" onClick="desplegarMenu()"></div>
+  <div class="accesosespeciales" onClick="desplegarMenuEspeciales()"></div>
+  <div class="elmenu" id="elmenu">      
+  	
+    <a href="" onClick="cerrarMenu()" class="cerrarmenu" id="cerrarmenu"></a>
+  	
+    <div class="itemsmenu" id="itemsmenu">
+  	  <ul>
+  	    <li><a href="#/home" onclick="cerrarMenu()">Home</a></li>
+        <li><a href="#/seccion/economia" onclick="cerrarMenu()">Econom&iacute;a</a></li>
+        <li><a href="#/seccion/finanzas" onclick="cerrarMenu()">Finanzas</a></li>
+        <li><a href="#/seccion/impuestos" onclick="cerrarMenu()">Impuestos</a></li>
+        <li><a href="#/seccion/legales" onclick="cerrarMenu()">Legales</a></li>
+        <li><a href="#/seccion/negocios" onclick="cerrarMenu()">Negocios</a></li>
+        <li><a href="#/seccion/tecnologia" onclick="cerrarMenu()">Tecnolog&iacute;a</a></li>
+        <li><a href="#/seccion/comex" onclick="cerrarMenu()">Comex</a></li>
+        <li><a href="#/seccion/management" onclick="cerrarMenu()">Management</a></li>
+        <li><a href="#/seccion/marketing" onclick="cerrarMenu()">Marketing</a></li>
+	
+        <li class="buscador" style="display:none;">
+          <div class="input"><input name="" type="text" value="Buscar"></div>
+          <div class="boton"><a href="#"></a></div>
+        </li>
+        <li class="redes">
+            <ul>
+              <li class="fb"><a href="https://www.facebook.com/iProfesionalcom" target="_blank"></a></li>
+              <li class="tw"><a href="https://twitter.com/iProfesional" target="_blank"></a></li>
+              <li class="gp"><a href="https://plus.google.com/+iProfesional" target="_blank"></a></li>
+              <li class="in"><a href="https://www.linkedin.com/grp/home?gid=750187" target="_blank"></a></li>
+            </ul>
+        </li>
+	      </ul>
+  	</div>
+  </div>
+
+  <div class="elmenu" id="elmenuespeciales">
+  	<a href="" onClick="cerrarMenuEspeciales()" class="cerrarmenuespeciales" id="cerrarmenuespeciales"></a>
+  	<div class="itemsespeciales" id="itemsmenuespeciales">
+        <ul>
+            <li ng-repeat="noticia in indice">
+              <a href="{{ noticia.app_url }}" ng-if="noticia.titulo_home">
+                <span ng-if="!noticia.chapita">{{ noticia.seccion }}</span>
+                <span ng-if="noticia.chapita">{{ noticia.chapita }}</span>
+                {{ noticia.titulo_home }}
+              </a>
+              <a href="{{ noticia.app_url }}" ng-if="!noticia.titulo_home">
+                <span ng-if="!noticia.chapita">{{ noticia.seccion }}</span>
+                <span ng-if="noticia.chapita">{{ noticia.chapita }}</span>
+                {{ noticia.titulo }}
+              </a>
+            </li>
+        </ul>
+    </div>		
+  </div>
+  <div class="logo"><a href="#/home"></a></div>
