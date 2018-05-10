@@ -3,7 +3,7 @@
   <description></description>
   <author href="http://www.inkstudio.com.co" email="inkstudiocompany@gmail.com">Ink Studio</author>
   <content src="index.html"/>
-  <preference name="phonegap-version" value="cli-6.0.0" />
+  <preference name="phonegap-version" value="cli-6.0.0com.indigoway.cordova.whitelist.whitelistplugin" />
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="portrait"/>
   <preference name="target-device" value="universal"/>
@@ -50,17 +50,16 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*" subdomains="true"/>
-  
-  <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
-  <allow-intent href="http://*/*"/>
-  <allow-intent href="https://*/*"/>
-  <allow-intent href="tel:*"/>
-  <allow-intent href="sms:*"/>
-  <allow-intent href="mailto:*"/>
-  <allow-intent href="geo:*"/>
-  <allow-intent href="unsafe:whatsapp://*"/>
-  <allow-intent href="http://ads.e-planning.net/*" />
-  <allow-intent href="http://us.img.e-planning.net/*" />
+
+  <allow-navigation href="http://*/*"/>
+  <allow-navigation href="https://*/*"/>
+  <allow-navigation href="tel:*"/>
+  <allow-navigation href="sms:*"/>
+  <allow-navigation href="mailto:*"/>
+  <allow-navigation href="geo:*"/>
+  <allow-navigation href="unsafe:whatsapp://*"/>
+  <allow-navigation href="http://ads.e-planning.net/*" />
+  <allow-navigation href="http://us.img.e-planning.net/*" />
   
   <platform name="android">
     <allow-intent href="market:*"/>
