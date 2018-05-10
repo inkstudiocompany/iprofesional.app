@@ -280,6 +280,16 @@ iproapp.directive('rowcontainer',
 				        paginationClickable: true,
 				        spaceBetween: 30
 				    });
+				    var individualSwiper = new Swiper('.swiper-container-individual', {
+				        pagination: '.swiper-pagination-individual',
+				        slidesPerView: 1,
+				        slidesPerColumn: 1,
+				        paginationClickable: true,
+				        spaceBetween: 20,
+				        autoplay:  5000,
+					        
+				    });
+				    
              	}, 2000);
             }
 		});
