@@ -3,7 +3,7 @@
   <description></description>
   <author href="http://www.inkstudio.com.co" email="inkstudiocompany@gmail.com">Ink Studio</author>
   <content src="index.html"/>
-  <preference name="phonegap-version" value="cli-6.0.0com.indigoway.cordova.whitelist.whitelistplugin" />
+  <preference name="phonegap-version" value="cli-6.0.0" />
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="portrait"/>
   <preference name="target-device" value="universal"/>
