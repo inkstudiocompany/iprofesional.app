@@ -1,0 +1,10 @@
+<div class="notasmasleidas">
+<div class="titnotasmasleidas">Notas m&aacute;s le&iacute;das</div>
+    <ol>
+        <li ng-repeat="noticia in masleidas | limitTo:6" ng-if="$index < 6">
+          <span>{{ $index + 1 }}.</span>
+          <a href="{{ noticia.app_url }}" ng-if="noticia.titulo_home">{{ noticia.titulo_home }}</a>
+          <a href="{{ noticia.app_url }}" ng-if="!noticia.titulo_home">{{ noticia.titulo }}</a>
+        </li>
+    </ol>
+</div>
