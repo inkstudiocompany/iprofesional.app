@@ -19,7 +19,7 @@
   <preference name="disable-cursor" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="14"/>
-  <preference name="android-installLocation" value="auto"/>
+  <preference name="android-  installLocation" value="auto"/>
 
   <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
   
@@ -60,6 +60,7 @@
   <allow-navigation href="unsafe:whatsapp://*"/>
   <allow-navigation href="http://ads.e-planning.net/*" />
   <allow-navigation href="http://us.img.e-planning.net/*" />
+  <allow-navigation href="http://www.iprofesional.com/*" />
   
   <platform name="android">
     <allow-intent href="market:*"/>
