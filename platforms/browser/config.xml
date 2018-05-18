@@ -49,6 +49,14 @@
     <allow-intent href="unsafe:whatsapp://*" />
     <allow-intent href="http://ads.e-planning.net/*" />
     <allow-intent href="http://us.img.e-planning.net/*" />
+    <allow-navigation href="http://www.iprofesional.com/*" />
+    <allow-navigation href="http://iprofesional.com/*" />
+    <allow-navigation href="http://ads.e-planning.net/*" />
+    <allow-navigation href="http://us.img.e-planning.net/*" />
+    <access origin="http://www.iprofesional.com/*" />
+    <access origin="http://iprofesional.com/*" />
+    <access origin="http://ads.e-planning.net/*" />
+    <access origin="http://us.img.e-planning.net/*" />
     <preference name="phonegap-version" value="cli-6.4.0" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />

@@ -63,7 +63,6 @@
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*" subdomains="true"/>
 
-  <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -73,6 +72,16 @@
   <allow-intent href="unsafe:whatsapp://*"/>
   <allow-intent href="http://ads.e-planning.net/*" />
   <allow-intent href="http://us.img.e-planning.net/*" />
+
+  <allow-navigation href="http://www.iprofesional.com/*"/>
+  <allow-navigation href="http://iprofesional.com/*"/>
+  <allow-navigation href="http://ads.e-planning.net/*" />
+  <allow-navigation href="http://us.img.e-planning.net/*" />
+
+  <access origin="http://www.iprofesional.com/*"/>
+  <access origin="http://iprofesional.com/*"/>
+  <access origin="http://ads.e-planning.net/*" />
+  <access origin="http://us.img.e-planning.net/*" />
 
   <platform name="android">
     <allow-intent href="market:*"/>
